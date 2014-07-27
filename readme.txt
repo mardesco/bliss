@@ -31,7 +31,10 @@ Bliss is built on the [Widgeon Advanced framework by Jesse Smith](https://github
 These files are provided "as-is" with the express understanding that they are not fit for any use or purpose, much less merchantability.  Use them at your own risk.    
 
 = Support =
-If you require support or assistance, you will find that the WordPress forums are an amazing resource.  Unfortunately, the theme author is unable to provide free technical support for this theme.  However, your constructive feedback and suggestions are welcome.  
+If you require support or assistance, you will find that the WordPress forums are an amazing resource.  Unfortunately, the theme author is unable to provide a large amount of free technical support for this theme.  However, your constructive feedback and suggestions are welcome.  
+
+= Bug reports & suggestions =
+If you spot a bug; if you notice a browser display inconsistency; or if you have an idea you'd like to see incorporated into a future update: please feel welcome to [post to the theme wiki](https://github.com/mardesco/bliss/wiki).
 
 == License ==
 
