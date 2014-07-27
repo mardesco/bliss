@@ -1,0 +1,1392 @@
+/* 
+Theme Name: Bliss
+Author: Jesse Smith for Mardesco
+Theme URI: http://www.mardesco.com/themes/bliss/
+Description: A blissful website experience.  "Bliss" is a mobile-friendly, responsive WordPress theme with a clean, modern design.  Includes built-in slideshows, theme color switcher, and a site logo uploader.  
+Author URI: http://www.mardesco.com
+Version: 0.0.11
+Tags: responsive-layout,theme-options,custom-header,custom-background
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+General comments:
+
+The cross-browser normalization section of this stylesheet is based on the HTML5 Boilerplate, which is released under the MIT license. 
+
+This theme contains all of the basic page types described by the WordPress Codex at http://codex.wordpress.org/Theme_Development#Template_Files_List
+EXCEPT for the following:
+rtl.css
+taxonomy.php
+date.php
+
+*/
+
+
+/* ==========================================================================
+   Foundation, HTML5 & cross-browser normalization.
+   ========================================================================== */
+	
+html,
+body{
+    margin: 0;
+    padding:0;	
+    font-size:100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;    
+    font-family:"Helvetica Neu", Helvetica, Arial, sans-serif; 	
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+    display: block;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+/* prevent BG image flicker upon hover */
+.ie6 html {
+    filter: expression(document.execCommand("BackgroundImageCache", false, true));
+}	
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+[hidden] {
+    display: none;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+abbr[title],
+dfn[title] {
+    border-bottom: 1px dotted #000;
+    cursor:help;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+blockquote {
+    margin: 1em 40px;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+dfn {
+    font-style: italic;
+}
+
+mark {
+    background: #ff0;/* blue */
+    color: #000;
+    background-color: #fcd700;/* yellow */
+    color: #000; 
+    text-decoration: none;
+}
+
+ins {
+    background-color: #fcd700;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
+
+figcaption{
+    font-size:80%;
+    text-align:center;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+}
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+	white-space: pre-line;
+    word-wrap: break-word;
+}
+
+small {
+    font-size: 80%;
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+dl,
+menu,
+ol,
+ul {
+    margin: 1em 0;
+    padding: 0 0 0 40px;
+	}
+
+dd {
+    margin: 0 0 0 40px;
+}
+
+nav ul,
+nav ol,
+.menu ul {
+    list-style: none;
+    list-style-image: none;
+}
+
+img {
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+figure {
+    margin: 0;
+}
+
+form {
+    margin: 0;
+}
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    padding: 0.35em 0.625em 0.75em;
+    margin: 0;
+}
+
+legend {
+    border: 0;
+    padding: 0;
+    white-space: normal;
+    *margin-left: -7px;
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+    margin: 0;
+    font-family:sans-serif;
+}
+
+button,
+textarea{
+    vertical-align: baseline;
+    *vertical-align: middle;	
+}
+
+button {
+    width: auto;
+    overflow: visible;
+}
+
+input,
+select {
+    vertical-align: middle;
+}
+	
+input[type="radio"] {
+    vertical-align: text-bottom;
+}
+	
+input[type="checkbox"] {
+    vertical-align: bottom;
+    *vertical-align: baseline;
+}
+	
+.ie6 input {
+    vertical-align: text-bottom;
+}
+
+button,
+input {
+    line-height: normal;
+}
+
+.clickable,
+label,
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+    *overflow: visible;
+}
+
+button[disabled],
+input[disabled] {
+    cursor: default;
+}
+
+select, input, textarea {
+    font: 99% sans-serif;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+    *height: 13px;
+    *width: 13px;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+    resize: vertical;	
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before, 
+blockquote:after, 
+q:before, 
+q:after {
+    content: ''; content: none;
+}
+	
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Note:  Tables still require cellspacing="0" in the markup! */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: inherit; 
+    font: 100%;
+}
+
+th {
+    font-weight: bold;
+    vertical-align: bottom;
+}
+
+td,
+td img {
+    font-weight: normal;
+    vertical-align: top;
+}	
+	
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}	
+	
+/* End HTML5 & cross-browser standardization. */	
+
+/* ==========================================================================
+   Display classes.
+   ========================================================================== */
+
+
+.hidden,
+.none {
+    display: none !important;
+    visibility: hidden;
+}
+
+/* Hide visually, but make it available for screen readers */
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/* Hide visually and from screenreaders, but maintain layout  */
+.invisible {
+    visibility: hidden;
+}
+
+/* and the opposite */
+.show,
+.block,
+.visible{
+    display:block;
+    visibility:visible;
+}
+
+.clear,
+.break,
+.spacer{
+    clear:both;
+}
+
+.break{
+    margin-top:1.125em;
+}
+	
+.spacer{
+    margin-top:2.25em;
+}
+
+.inlineSpacer{
+    display:inline-block;
+    margin:0 0.75em;/*12px*/
+    text-align:center;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";/* some suggest the whitespace character "\0020" instead */
+    display: block;/* or you could use display:table;  */
+    height:0;
+    overflow:hidden;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;/* IE6/7 */
+}
+
+/* End display classes. */
+
+
+/* ==========================================================================
+   Some default styles. 
+   ========================================================================== */
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+    color: #333;/* off-black. */
+}
+
+body {
+  font-size: 1em;
+  line-height: 1.6; /* the font size, times 1.5 */
+}
+	
+a{
+    text-decoration:none;
+    margin: 0; 
+    padding: 0; 
+    font-size: 100%; 
+    vertical-align: baseline; 
+    background: transparent;	
+}
+
+a,
+a:visited{
+    color:#03F;
+}
+
+a:hover{
+    text-decoration:underline;
+    color: #69f;
+}
+	
+a:link {
+    -webkit-tap-highlight-color: #fcd700;
+}
+
+a img{
+    border:0;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+}
+
+h6 {
+    font-size: 0.75em;
+    margin: 2.33em 0;
+}
+p,
+pre {
+    font-size:1em;
+    margin: 1em 0;
+}	
+	
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/* some classes required by ThemeCheck */
+.wp-caption,
+.wp-caption-text,
+.gallery-caption{
+    font-size:85%;
+    font-weight:bold;
+}
+.bypostauthor{
+	font-size:110%;
+	padding:8px;
+	background-color:#fdffc6;
+	border:1px solid #f6ff00;
+}
+
+/* some more default classes */
+.aligncenter,
+.center{
+    text-align:center;
+    margin:0 auto;
+}
+img.center,
+img.aligncenter{
+	margin:1.2em auto;
+}
+
+.alignleft,
+.left,
+.pic{
+    float:left;
+    text-align:left;
+}
+.pic{
+    margin:0 0.4375em 0.125em 0;
+}
+
+img.left,
+img.alignleft{
+margin:1.2em 1.2em 0.875em 0;
+}
+
+.alignright,
+.right,
+.picR{
+    float:right;
+    text-align:right;
+}
+
+.picR{
+    margin:0 0 0.125em 0.4375em;
+}
+img.right,
+img.alignright{
+	margin:1.2em 0 0.875em 1.2em;
+}
+
+/* when you want to demo a layout, but you don't want to actually use a distracting placeholder image. */
+.demoPic{
+    text-align:center;
+    height:10.3125em;/*165px;*/
+    width:17.1875em;
+    background-color:#808080;
+}
+
+.profile-pic{
+	-ms-transform: rotate(-2.5deg); /* IE 9 */
+	-webkit-transform: rotate(-2.5deg); /* Chrome, Safari, Opera */
+	transform: rotate(-2.5deg);
+}
+
+.small{font-size:87%}
+
+.rounded{
+    /* Firefox */
+    -moz-border-radius: 3px; 
+    /* WebKit */
+    -webkit-border-radius: 3px; 
+    /* IE9, Opera 10.5+, dev channel releases of Google Chrome */
+    border-radius: 3px;
+
+    /* useful if you don't want a bg color from leaking outside the border: */
+    -moz-background-clip: padding; 
+    -webkit-background-clip: padding-box; 
+    background-clip: padding-box;
+}
+
+.multi-column {
+    text-align:justify;
+
+    /* Firefox */
+    -moz-column-width: 13em;
+    -moz-column-gap: 1em;
+    /* WebKit */
+    -webkit-column-width: 13em;
+    -webkit-column-gap: 1em;
+    /* Standard */
+    column-width: 13em;
+    column-gap: 1em;
+}
+
+.shadow {
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=0, Color='#000000');
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=0, Color='#000000')";
+    /* Firefox */
+    -moz-box-shadow: 0px 0px 3px #000000;
+    /* WebKit */
+    -webkit-box-shadow: 0px 0px 3px #000000;
+    /* Standard */
+    box-shadow: 0px 0px 3px #000000;
+}
+
+/* end default styles */
+
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+	
+.site-header{
+    padding:0.4375em 0.75em 3em;
+	margin-bottom:26px;
+}
+
+.site-header .logo{
+    float:left;
+	display:block;
+	height:90px;
+}
+
+.logotext{
+	font-size:2em;
+	line-height:1;
+}
+
+.site-header .site-slogan{
+    float:right;
+}
+
+@media screen and (max-width:760px){/* was 680. */
+	.site-header .site-slogan{
+		float:left;
+		clear:both;
+		font-size:1.25em;
+	}
+}
+
+#headerNavWrap{
+	clear:both;
+}
+
+#headerNavWrap ul{
+	z-index:150;
+}
+
+/*
+Called to my attention by theme review:
+If the user has not gone to the menu admin page and hit "save"
+after they install the theme, then the function wp_nav_menu
+does NOT return a menu wrapped in the specified parent container element.  
+Therefore, styles for the header navigation menu must not rely
+on the presence of that wrapper element, or its attributes.
+
+Which is why i'm adding ".site-header .menu" to all instances of "header nav" and "#headerNav" */
+*/
+
+#headerNav,
+.site-header .menu{
+    text-align:left;
+    padding-bottom:4em;
+}
+#headerNav ul,
+.site-header .menu ul{
+    padding-left:0;
+    margin-left:0;
+}
+#headerNav ul li,
+.site-header .menu ul li{
+    float:left;
+    margin-left:1em;
+    padding-left:0;
+}
+#headerNav ul li:first-child,
+.site-header .menu ul li:first-child{/* the li that is the first child of the ul. */
+    margin-left:0;
+    padding-left:0;
+}
+	
+#headerNav  > ul > li,
+.site-header .menu > ul > li{position:relative}
+
+#headerNav  > ul > li > a,
+ .site-header .menu > ul > li > a{
+	display:block;
+	padding:6px 9px;
+	border-radius:3px;
+}
+#headerNav a:hover,
+.site-header .menu a:hover{text-decoration:none}
+
+#headerNav ul li ul,
+#headerNav ul li ul li ul,
+.site-header .menu ul li ul,
+.site-header .menu ul li ul li ul{
+    position:absolute;
+    margin:0;
+    padding:0;
+	opacity:0;
+    background-color:#ffffff;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-background-clip:border-box;
+    background-clip: border-box;
+    width:220px;
+    overflow:hidden;
+	z-index:150;	
+	border:1px solid #666666;
+	-webkit-transition:opacity 0.3s ease-out;-moz-transition:opacity 0.3s ease-out;-ms-transition:opacity 0.3s ease-out;-o-transition:opacity 0.3s ease-out;
+	transition:opacity 0.3s ease-out;
+ }
+ 
+ #headerNav ul li ul li a,
+ #headerNav ul li ul li ul li a,
+ .site-header .menu ul li ul li a,
+ .site-header .menu ul li ul li ul li a{
+	display:block;
+ 	max-height:0;
+	-webkit-transition:max-height 1.5s ease-in;-moz-transition:max-height 1.5s ease-in;-ms-transition:max-height 1.5s ease-in;-o-transition:max-height 1.5s ease-in;
+	transition:max-height 1.5s ease-in;
+}
+ 
+
+ #headerNav  ul ul li,
+.site-header .menu ul ul li{
+    margin-left:0;
+    width:220px;
+}
+	
+#headerNav ul li ul li,
+#headerNav ul li ul li ul li,	
+ .site-header .menu ul li ul li,
+ .site-header .menu ul li ul li ul li{
+    border-top:1px solid #666666;
+}
+
+#headerNav li:hover ul,
+#headerNav ul li ul li:hover ul, 
+#headerNav li.over ul,
+.site-header .menu li:hover ul,
+.site-header .menu ul li ul li:hover ul, 
+.site-header .menu li.over ul{
+	opacity:1;
+	box-shadow:0.25px 1px 3px #666
+}
+
+
+#headerNav li:hover ul li a,
+#headerNav ul li ul li:hover ul li a, 
+#headerNav li.over ul li a,
+.site-header .menu li:hover ul li a,
+.site-header .menu ul li ul li:hover ul li a, 
+.site-header .menu li.over ul li a{
+    padding:6px 10px;
+	max-height:200px;
+	overflow:hidden;
+}
+#headerNav ul li:hover ul li:first-child,
+.site-header .menu ul li:hover ul li:first-child{
+    border-top:none;
+}
+#headerNav ul li ul li ul,
+.site-header .menu ul li ul li ul{
+	left:220px;
+}
+/* end headerNav */
+
+/*
+begin collapsing-nav-menu.css
+*/
+
+#headerNavWrap .open_menu_button{
+	display:none;
+}
+
+#headerNavWrap.collapsed .open_menu_button{
+	display:block;
+	text-align:center;
+	padding:4px;
+	width:50px;
+	height:22px;
+	background-color:#000;
+	color:#FFF;
+	cursor:pointer;
+	border-radius:4px;
+	position:absolute;
+	top:80px;
+	right:30px;
+}
+
+/* adjust menu button position to account for the admin bar for logged-in users */
+body.logged-in.admin-bar #headerNavWrap.collapsed .open_menu_button{
+	top:108px;/* the above, plus 28 pixels */ 
+}
+
+
+#headerNavWrap.collapsed{
+	padding:0;
+	margin:0;
+}
+
+#headerNavWrap.collapsed ul{
+	display:none;
+	position:absolute;
+	background:#FFF;
+	border-top:1px solid #000;
+	border-bottom:1px solid #000;
+	border-right:0;
+	border-left:0;
+	left:0;
+}
+
+#headerNavWrap.collapsed ul li{
+	float:none;
+	width:100%;
+	border-bottom:1px solid #000;
+	background:transparent;
+	margin-left:0;
+}
+
+#headerNavWrap.collapsed ul li:last-child{
+	border-bottom:none;
+}
+
+#headerNavWrap.collapsed.open ul{
+	display:block;
+	clear:both;
+	float:none;
+	width:100%;
+	
+}
+
+#headerNavWrap.collapsed ul li a{
+	padding-left:15px;
+	border-radius:0;
+}
+
+/* hide mouse-oriented dropdown menus from touch screen mobile devices */
+#headerNavWrap.collapsed ul ul,
+#headerNavWrap.collapsed ul li ul,
+#headerNavWrap.collapsed ul li:hover ul,
+#headerNavWrap.collapsed ul li ul li{
+	display:none;
+}
+
+/*
+end collapsing-nav-menu.css
+*/
+
+
+
+#searchform,
+.searchform{
+    clear:both;
+    float:right;
+}
+
+@media screen and (min-width:681px) and (max-width:760px){
+	#searchform{clear:none}
+}
+
+
+/* not 760. */
+@media screen and (max-width:680px){
+    #searchform,
+    .searchform{
+        float:none;
+		margin-bottom:20px;
+    }
+}
+
+#breadcrumbs{
+    font-size:85%;
+    font-style:italic;
+    font-stretch:120%;
+	margin-bottom:16px;
+}
+	
+/* main content section */	
+		
+#wrapper{
+    clear:both;
+    width:100%;
+    float:left;
+}
+#main{
+    
+}
+
+.featured-image-container{
+	margin-bottom:26px;
+}
+
+#main h1{
+    margin:0 0 1em 0;
+}
+#main h2,
+#main h3,
+#main h4,
+#main h5,
+#main h6,
+#main p,
+#main ul{
+	margin:1em 0;
+}
+
+#main p{
+    text-align:left;
+}
+
+#wrapper,
+.rightSideNav,
+.leftSideNav,
+.sideNav{
+	margin-top:27px;
+}
+
+.rightSideNav h2,
+.leftSideNav h2{
+    margin-top:0;/* else widget titles make sidebar layout uneven. */
+    padding-top:0;
+}
+
+.sideNav ul, 
+.leftSideNav ul,
+.rightSideNav ul,
+.sideNav li,
+.leftSideNav li,
+.rightSideNav li{
+    list-style:none;
+}
+
+.sideNav ul, 
+.leftSideNav ul,
+.rightSideNav ul,
+.sideNav li, 
+.leftSideNav li,
+.rightSideNav li{
+    margin-left:0;
+    padding-left:0;
+}
+
+.sideNav li, 
+.leftSideNav li,
+.rightSideNav li{
+    margin-bottom:0.75em;/* 12px */
+}
+
+footer{
+    clear:both;
+    width:100%;
+}
+
+footer .content{
+    padding:6.25em 1.6666666666667% 2em 1.6666666666667%;
+}
+
+/*
+see above notes about wp_nav_menu and the case of the missing parent element.
+adding .site-footer .menu to all instances of #footerNav.
+*/
+
+#footerNav ul,
+.site-footer .menu ul{
+    margin:0;
+    padding:0;
+    clear:both;
+}
+#footerNav li,
+.site-footer .menu li{
+    float:left;
+    margin-right:2em;
+}
+#footerNav > li > a:before,
+.site-footer  .menu > li > a:before {
+    content:'  |';
+    position:relative;
+    left:-1em;
+}
+#footerNav > li:first-child > a:before,
+.site-footer .menu > li:first-child > a:before {
+    content:'';
+}
+
+#post-pagination { 
+    clear:both;
+    float:right;
+}
+
+#post-pagination a:hover{
+     text-decoration:underline;
+}
+
+#post-pagination .current-post-page {
+    font-weight:bold; 
+}
+
+ul.page-numbers {
+    margin: 20px 0 10px;
+    width: 100%;
+    padding: 0;
+    font-size: 12px;
+    line-height: normal;
+    clear: both;
+    float: left;
+}
+
+ul.page-numbers li {
+    float: left;
+    list-style:none;
+}
+
+ul.page-numbers a,
+ul.page-numbers span {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#E4E3E3), to(#FFFFFF));
+    background: -moz-linear-gradient(top,  #E4E3E3,  #FFFFFF);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#E4E3E3', endColorstr='#FFFFFF');
+    padding: 3px 4px 2px 4px; 
+    margin: 2px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    color: #666;
+}
+
+ul.page-numbers a:hover,
+ul.page-numbers span.current {	
+    border: 1px solid #666;
+    color: #444;
+}
+
+/* end default foundational layout styles. */
+
+
+#comments{
+	padding:24px 12px;
+}
+
+#comments p,
+.comment-meta,
+.comment-reply-link{
+	font-size:13px;
+}
+
+#comments p.form-submit{font-size:16px}
+
+.comment-form-comment,
+.form-allowed-tags{
+	padding-top:7px;
+}
+
+.sticky{/* required by ThemeCheck */
+    font-size:110%;
+}
+
+.fixednav{
+    position:fixed;
+    top:0;
+}
+
+/* end basic layout */
+
+/* ==========================================================================
+   Responsive design considerations
+   ========================================================================== */
+
+img,
+object,
+embed {
+    max-width: 100%;
+    height:auto;
+}
+
+
+
+/* 
+Never apply padding to the #container.  It breaks the layout when the browser is resized. 	
+Instead, apply padding to the elements within the container. 
+*/
+#container{
+    width:1024px;
+    margin:40px auto;
+}
+
+@media only screen and (max-width:1023px){
+    #container{
+        width:100%;
+    }
+}
+
+
+/*
+also, don't apply padding to the footer.  instead, add the padding to footer .content
+*/
+.site-header,
+footer .content{
+	padding:10px 2.9%;
+}
+.hasRightNav #main{padding-right:2.9%;}
+.hasLeftNav #main{padding-left:2.9%;}
+
+
+
+
+
+
+/* the default: layout with no sidebars. */
+#main{
+    margin:0;
+    padding:0 2.9%;
+}	
+
+
+/* sidebars */
+
+/* from standard desktop browsers, down to tablets.  min 775px wide */
+/* only large screens get both sidebars. */
+/* these devices see sidebars on BOTH SIDES */
+/* (only these large screens get a left sidebar.) */
+.hasLeftNav #main{
+    margin-left:22.45%;
+    padding-left:2.9%;/* must match right nav, below. */
+}
+
+.sideNav,
+.leftSideNav{
+    float:left;
+    width:19.55%;/*auto;/*16.775%;*/
+    margin-left:-100%;
+    padding-left:2.9%;
+}
+
+/* specific to narrow browsers and tablet computers, less than 875px wide */
+@media only screen and (max-width: 874px){
+    /* at this size,  the left sidebar displays below #main.  */
+    .hasLeftNav #main{
+        margin-left:0;
+    }
+    .sideNav,
+    .leftSideNav{
+        clear:both;
+        display:block;
+        margin:0;
+        width:auto;/* width:auto works, whereas width:100% breaks the layout if your sidebar has any padding. */
+        float:none;
+    }
+    .leftSideNav ul{
+        clear:both;
+    }	
+    .leftSideNav li{
+        float:left;
+        margin-right:2.5em;
+    }
+}
+/*end tablet-specific with no left sidebar */			
+		
+	
+/* 
+our default full width should be seen
+from large regular screens down to tablets and narrow browsers, min. 680px wide. 
+*/
+
+.hasRightNav #main{
+    margin-right:22.45%;
+    padding-right:2.9%;/* must match left nav, above. */
+}
+
+.rightSideNav{
+    padding:0;
+    float:left;
+    /* don't set a padding-right, just calculate the width and margin-left correctly. */
+    width:19.55%;
+    margin-left:-22.45%;/* width of the sidebar, PLUS the "padding"...  */	
+}
+
+/* small screens: no right hand sidebar either. */
+@media only screen and (max-width:679px){
+    .hasRightNav #main{
+        margin:0;
+        padding:0 2.9% 0 0;
+    }
+    .rightSideNav{
+        clear:both;
+        width:100%;
+        margin:0.6875em auto 0 auto;
+    }
+
+    .rightSideNav ul{
+        clear:both;
+    }	
+    .rightSideNav li{
+        float:left;
+        margin-right:2.5em;
+    }				
+}	
+
+/* don't float pics on very small screens: either very narrow browsers, or mobile handhelds. */
+@media only screen and (max-width:650px){
+	
+    /* don't try to wrap text around floated images/objects on small screens. */
+    #main .pic,
+    #main .picR{
+        display:block;
+        clear:both;
+        float:none;
+        text-align:center;
+        margin:0 auto;
+    }
+    #main .pic:after,
+    #main .picR:after{
+        content:"";
+        display:block; 
+        clear:both;
+        height:0; 
+    }
+	
+}
+/* end general small screens */	
+
+
+/* make the slideshow more responsive */
+
+#bliss_slideshow_container{
+	padding:0 2.9% 0.4375em 2.9%;
+	text-align:center;
+	z-index:10;
+}
+
+#bliss_slideshow{
+	overflow:hidden;
+}
+
+#bliss_slideshow_container .slide{
+	width:100%;
+	height:auto;
+	background-position:center;
+	vertical-align:center;
+	position:relative;
+	margin:0 auto;
+}
+
+/* user-selectable color schemes */
+
+body.blue{background-color:#007fb1;}
+body.blue #container{background-color:#d8ecf4}
+body.blue a{color:#0074A2}
+body.blue a:hover{color:#2ac3ff}
+body.blue .site-header .menu > ul > li > a,
+body.blue #headerNav > ul > li > a{background-color:#0074A2;color:#d8ecf4}
+body.blue .site-header .menu > ul > li > a:hover,
+body.blue #headerNav > ul > li > a:hover{background-color:#007fb1;color:#d8ecf4}
+
+body.green{background-color:#018113}
+body.green #container{background-color:#c4ffc5}
+body.green a{color:#00650f}
+body.green a:hover{color:#018113}/*0F0*/
+body.green .site-header .menu > ul > li > a,
+body.green #headerNav > ul > li > a{background-color:#00650f;color:#c4ffc5}
+body.green .site-header .menu > ul > li > a:hover,
+body.green #headerNav > ul > li > a:hover{background-color:#018113;}
+
+
+body.maroon{background-color:#540e1f;}
+body.maroon #container{background-color:#7b7f80;/* That's dark grey.  If you prefer pink, you could use: #ffd9e2;*/}
+body.maroon a{color:#540e1f}
+body.maroon a:hover{color:#921936}
+body.maroon .site-header .menu > ul > li > a,
+body.maroon #headerNav > ul > li > a{background-color:#540e1f;color:#9f9f9f}/*a3a7a9;*/
+body.maroon .site-header .menu > ul > li > a:hover,
+body.maroon #headerNav > ul > li > a:hover{background-color:#921936/*;color:#540e1f*/}
+
+
+body.light{background-color:#EFEFEF;}
+body.light #container{background-color:#F8F8F8;}
+body.light a{color:#656869}
+body.light a:hover{color:#a3a7a9}
+body.light .site-header .menu > ul > li > a,
+body.light #headerNav > ul > li > a{background-color:#656869;color:#F8F8F8}/*color:#a3a7a9*/
+body.light .site-header .menu > ul > li > a:hover,
+body.light #headerNav > ul > li > a:hover{background-color:#a3a7a9;color:#444647}/*656869*/
+
+body.dark{background-color:#666666;}
+body.dark #container{background-color:#a3a7a9;}
+body.dark a{color:#444647}
+body.dark a:hover{color:#656869}
+body.dark .site-header .menu > ul > li > a,
+body.dark #headerNav > ul > li > a{background-color:#444647;color:#a3a7a9}
+body.dark .site-header .menu > ul > li > a:hover,
+body.dark #headerNav > ul > li > a:hover{background-color:#656869;color:#eee}
+
+
+
+/* ==========================================================================
+   Your Custom Style Rules
+   ========================================================================== */
+
+/*
+	On second thought
+	best practice is to create a child theme
+	so that when you update this theme in the future
+	your custom rules won't be overwritten.
+*/
+
+
+/* I'm putting print styles last so they will override any style declarations that weren't assigned to a media query. */
+
+/* =============================================================================
+   Print styles.
+   ========================================================================== */
+ 
+@media print {
+	* { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
+	a, a:visited { color: #444 !important; text-decoration: underline; }
+	a[href]:after { content: " (" attr(href) ")"; }
+	abbr[title]:after { content: " (" attr(title) ")"; }
+	.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+	pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+	thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
+	tr, img { page-break-inside: avoid; }
+	img { max-width: 100% !important; }
+	@page { margin: 0.5cm; }
+	p, h2, h3 { orphans: 3; widows: 3; }
+	h2, h3{ page-break-after: avoid; }
+	.do-not-print { display: none; }
+	#comments { page-break-before: always; }
+
+	body { width: 100% !important; margin: 0 !important; padding: 0 !important; line-height: 1.4; word-spacing: 1.1pt; letter-spacing: 0.2pt; font-family: Garamond,"Times New Roman",Times, serif; color: #000; background: none; font-size: 12pt; }
+	h1,h2,h3,h4,h5,h6 { font-family: Helvetica, Arial, sans-serif; }
+	h1 { font-size: 19pt; }
+	h2 { font-size:17pt; }
+	h3 { font-size:15pt; }
+	h4,h5,h6 { font-size:12pt; }
+	code { font: 10pt Courier, monospace; } 
+	blockquote { margin: 1.3em; padding: 1em; }
+	img { display: block; margin: 1em 0; }
+	a img { border: none; }
+	table { margin: 1px; text-align:left; }
+	th { border-bottom: 1px solid #333;  font-weight: bold; }
+	td { border-bottom: 1px solid #333; }
+	th, td { padding: 4px 10px 4px 0; }
+	caption { background: #fff; margin-bottom: 2em; text-align: left; }
+	thead { display: table-header-group; }
+	tr { page-break-inside: avoid; } 
+		
+	} /* END print media */

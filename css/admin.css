@@ -1,0 +1,10 @@
+/*
+http://codex.wordpress.org/Function_Reference/add_editor_style
+*/
+
+/* the use of this file and associated function call are recommended by ThemeCheck. */
+
+@import url( 'style.css' );
+
+/* Add overwrites as needed so that the content of the editor field is attractive and not broken */
+body { padding: 0; background: #fff; } 
