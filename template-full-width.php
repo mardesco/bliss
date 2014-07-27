@@ -1,11 +1,9 @@
 <?php
-//page-full-width.php
+//template-full-width.php
 
 /*
 Template Name: Full Width Page
 */
-
-//special variable tested by the header:
 
 
 get_header();

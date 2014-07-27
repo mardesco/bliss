@@ -180,7 +180,8 @@ Alternatively, you can eliminate the container width setting, for a layout that 
 
 == Changelog ==
 
-0.0.12 Trac ticket changes: additional footer nav menu CSS fixes; remove custom template declarations from non-custom template files; change file name page-full-width.php to template-full-width.php
+0.0.13 Change file name page-full-width.php to template-full-width.php
+0.0.12 Trac ticket changes: additional footer nav menu CSS fixes; remove custom template declarations from non-custom template files
 0.0.11 Correct mistyped CSS rule for footer nav menu
 0.0.10 Correct action hook to 'after_setup_theme'
 0.0.9 Changes per theme review. Removed "template name" tag from archives & other places where it did not belong.  Removed "blogroll" page template file. Corrected the default value of $contact_width global variable.
