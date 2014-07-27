@@ -1,10 +1,6 @@
 <?php
 //image.php
 
-/*
-Template Name: Image page
-*/
-
 //used for displaying a single image.
 //delete this page to default to using attachment.php
 //

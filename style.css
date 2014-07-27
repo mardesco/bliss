@@ -2,9 +2,9 @@
 Theme Name: Bliss
 Author: Jesse Smith for Mardesco
 Theme URI: http://www.mardesco.com/themes/bliss/
-Description: A blissful website experience.  "Bliss" is a mobile-friendly, responsive WordPress theme with a clean, modern design.  Includes built-in slideshows, theme color switcher, and a site logo uploader.  
+Description: A blissful website experience.  "Bliss" is a mobile-friendly, responsive WordPress theme with a clean, modern design.  Includes built-in slideshows, theme color switcher, and a convenient site logo uploader.  
 Author URI: http://www.mardesco.com
-Version: 0.0.11
+Version: 0.0.12
 Tags: responsive-layout,theme-options,custom-header,custom-background
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1025,6 +1025,14 @@ adding .site-footer .menu to all instances of #footerNav.
 #footerNav > li:first-child > a:before,
 .site-footer .menu > li:first-child > a:before {
     content:'';
+}
+
+#footerNav .sub-menu li,
+.site-footer .menu .sub-menu li{
+	clear:both;
+	margin-left:3px;
+	margin-right:0.6875em;
+	max-width:173px;
 }
 
 #post-pagination { 

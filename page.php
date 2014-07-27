@@ -1,10 +1,6 @@
 <?php
 //page.php
 
-/*
-Template Name: Default
-*/
-
 //display an individual page
 
 //loop: query a single page, and display it.

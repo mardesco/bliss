@@ -1,12 +1,8 @@
 <?php
 //attachment.php
 
-/*
-Template Name: Attachment page
-*/
-
 //used for displaying multimedia content.
-//display a customized layout and behavior specific to viewing a single attachement.
+//display a customized layout and behavior specific to viewing a single attachment.
 
 
 get_header();

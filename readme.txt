@@ -14,7 +14,7 @@ A blissful website experience.  "Bliss" is a mobile-friendly, responsive WordPre
 
 == Description == 
 
-A blissful website experience.  "Bliss" is a mobile-friendly, responsive WordPress theme.  Featuring theme options, to simplify your life.   Easily add a site logo, select a color scheme, create slideshows, and more.   
+A blissful website experience.  "Bliss" is a mobile-friendly, responsive WordPress theme.  Built-in theme options let you easily add a site logo, select a color scheme, create slideshows, and more.
 
 * Flexible and simple. Appropriate for beginners and advanced users alike.
 * Theme option to easily add your company's logo to the header bar
@@ -106,7 +106,7 @@ The photograph of the trees and clouds used as the "featured image" in the theme
 
 2. Under Appearance > Menus, create the menus that your website will use, and assign them to the appropriate positions on the "Manage Locations" tab.
 
-3. Add a Featured Image to your homepage, or create a "Slideshow 1" as described in the Frequently Asked Questions.
+3. Add a Featured Image to your homepage, or create a slideshow as described in the Frequently Asked Questions.
 
 = Removal =
 
@@ -177,6 +177,8 @@ Alternatively, you can eliminate the container width setting, for a layout that 
 
 == Changelog ==
 
+0.0.12 Trac ticket changes: additional footer nav menu CSS fixes; remove custom template declarations from non-custom template files; change file name page-full-width.php to template-full-width.php
+0.0.11 Correct mistyped CSS rule for footer nav menu
 0.0.10 Correct action hook to 'after_setup_theme'
 0.0.9 Changes per theme review. Removed "template name" tag from archives & other places where it did not belong.  Removed "blogroll" page template file. Corrected the default value of $contact_width global variable.
 0.0.8 Fixed additional code quality theme review requirements (see trac ticket for details)
