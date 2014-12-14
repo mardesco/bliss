@@ -246,6 +246,16 @@ function bliss_clean_title_link(){
 	printf(	'<a href="%s" title="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), get_the_title() );
 }
 
+// as per http://codex.wordpress.org/Function_Reference/wp_title#Covering_Homepage
+function bliss_homepage_title($title){
+	if( empty( $title ) && ( is_home() || is_front_page() ) ) {
+		return __( esc_attr( get_bloginfo( 'name' ) ), 'bliss' ) . ' | ' . get_bloginfo( 'description' );
+	  }
+	  return $title;
+	
+}
+add_filter( 'wp_title', 'bliss_homepage_title');
+
 // per theme review:
 // these calls to add_editor_style and add_theme_support
 // MUST be hooked to after_setup_theme

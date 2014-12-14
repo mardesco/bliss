@@ -5,7 +5,7 @@ Donate link: http://www.mardesco.com/payments/
 Theme URI: http://www.mardesco.com/themes/bliss/
 Tags: responsive,responsive-layout,mobile,options,theme-options,custom-header,custom-background,custom-logo,custom-width
 Requires at least: 3.7
-Tested up to: 3.9.1
+Tested up to: 4.0.1
 Stable tag: trunk
 License: Bliss WordPress theme, copyright 2014 by Mardesco.  Bliss is distributed under the terms of the GNU GPLv2
 
@@ -180,6 +180,7 @@ Alternatively, you can eliminate the container width setting, for a layout that 
 
 == Changelog ==
 
+0.1.0 Fix title tag display for custom homepage (as described at http://codex.wordpress.org/Function_Reference/wp_title#Covering_Homepage). 
 0.0.13 Change file name page-full-width.php to template-full-width.php
 0.0.12 Trac ticket changes: additional footer nav menu CSS fixes; remove custom template declarations from non-custom template files
 0.0.11 Correct mistyped CSS rule for footer nav menu
