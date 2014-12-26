@@ -11,7 +11,12 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	
-	<title><?php wp_title( ' : ', true, 'right' ); ?></title>
+	<title><?php 
+	$bliss_display_name = esc_attr(get_bloginfo('name'));
+	
+	wp_title( ' : ' . $bliss_display_name, true, 'right' ); 
+	
+	?></title>
 	
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -33,7 +38,16 @@
 
 <div id="container" class="shadow rounded">
 
-	<header class="site-header clearfix">
+	<header class="site-header clearfix<?php 
+
+		// header navigation menu style.
+		$bliss_header_nav_style = of_get_option('bliss_header_nav_style', 'full_width');
+		
+		if($bliss_header_nav_style == 'full_width'){
+			_e(' no-button-nav');
+		}
+	
+	?>">
     	
             <h1 class="logo">
                 <a href="<?php 
@@ -41,18 +55,18 @@
                     ?>" title="<?php printf( '%s : %s', esc_attr( get_bloginfo( 'name' ) ), esc_attr( get_bloginfo('description') ) ); ?>">
                 <?php 
 				
-				$display_name = esc_attr(get_bloginfo('name'));
+
 				
 				// logo to display here, if you have one.  
 				$logo = of_get_option('bliss_logo');
 				
 				if($logo){
 				
-					printf('<img src="%s" alt="%s" />', esc_url($logo), $display_name);
+					printf('<img src="%s" alt="%s" />', esc_url($logo), $bliss_display_name);
 				
 				}else{
 					//otherwise:				
-					printf('<span class="logotext">%s</span>', $display_name);
+					printf('<span class="logotext">%s</span>', $bliss_display_name);
 				}
                 ?>
                 </a>
@@ -76,7 +90,13 @@
         
         
         <?php
-		get_search_form();//you can move this to the sidebar, but you'd have to modify the CSS to prevent it from overflowing.
+		// the search form.
+		get_search_form();//you could move this to the sidebar, but you'd have to modify the CSS to prevent it from overflowing.
+		
+
+		
+		
+		if($bliss_header_nav_style == 'button'){
 		?>
         
 <!-- primary navigation menu. -->
@@ -92,9 +112,36 @@
 
 			?>
 		</div>
+		
 	</header>
 	
 	<?php
+	
+	}else{
+	
+	?>
+	
+	</header>
+	
+		<div id="headerNavWrap">
+			<?php
+
+			wp_nav_menu(array(
+				'theme_location' => 'header-nav',
+				'container' => 'nav',
+				'container_id' => 'headerNav',
+				'container_class' => 'clearfix bliss_full_width_nav'
+				));
+
+			?>
+		</div>	
+	
+	<?php
+	
+	}
+	
+	
+	
 	  // display the slideshow, if one has been attached to the current page.
 	  bliss_slideshow();
 	?>		

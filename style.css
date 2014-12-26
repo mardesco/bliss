@@ -263,7 +263,7 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-    -webkit-appearance: button;
+    /* -webkit-appearance: button; */
     cursor: pointer;
     *overflow: visible;
 }
@@ -658,6 +658,10 @@ img.alignright{
 	margin-bottom:26px;
 }
 
+.site-header.no-button-nav{
+	margin-bottom:0.4375em;
+}
+
 .site-header .logo{
     float:left;
 	display:block;
@@ -665,7 +669,7 @@ img.alignright{
 }
 
 .logotext{
-	font-size:2em;
+	font-size:1.875em; /* within an h1 tag = 16 * 2 * 1.875 = 60px */
 	line-height:1;
 }
 
@@ -697,13 +701,13 @@ does NOT return a menu wrapped in the specified parent container element.
 Therefore, styles for the header navigation menu must not rely
 on the presence of that wrapper element, or its attributes.
 
-Which is why i'm adding ".site-header .menu" to all instances of "header nav" and "#headerNav" */
+Which is why i'm adding ".site-header .menu" to all instances of "header nav" and "#headerNav" 
 */
 
 #headerNav,
 .site-header .menu{
     text-align:left;
-    padding-bottom:4em;
+ /*   padding-bottom:4em; */
 }
 #headerNav ul,
 .site-header .menu ul{
@@ -736,8 +740,8 @@ Which is why i'm adding ".site-header .menu" to all instances of "header nav" an
 
 #headerNav ul li ul,
 #headerNav ul li ul li ul,
-.site-header .menu ul li ul,
-.site-header .menu ul li ul li ul{
+.site-header ul.menu  li ul,
+.site-header ul.menu  li ul li ul{
     position:absolute;
     margin:0;
     padding:0;
@@ -748,7 +752,7 @@ Which is why i'm adding ".site-header .menu" to all instances of "header nav" an
     -moz-background-clip:border-box;
     background-clip: border-box;
     width:220px;
-    overflow:hidden;
+   /* overflow:hidden; */
 	z-index:150;	
 	border:1px solid #666666;
 	-webkit-transition:opacity 0.3s ease-out;-moz-transition:opacity 0.3s ease-out;-ms-transition:opacity 0.3s ease-out;-o-transition:opacity 0.3s ease-out;
@@ -757,8 +761,8 @@ Which is why i'm adding ".site-header .menu" to all instances of "header nav" an
  
  #headerNav ul li ul li a,
  #headerNav ul li ul li ul li a,
- .site-header .menu ul li ul li a,
- .site-header .menu ul li ul li ul li a{
+ .site-header ul.menu li ul li a,
+ .site-header ul.menu li ul li ul li a{
 	display:block;
  	max-height:0;
 	-webkit-transition:max-height 1.5s ease-in;-moz-transition:max-height 1.5s ease-in;-ms-transition:max-height 1.5s ease-in;-o-transition:max-height 1.5s ease-in;
@@ -767,14 +771,14 @@ Which is why i'm adding ".site-header .menu" to all instances of "header nav" an
  
 
  #headerNav  ul ul li,
-.site-header .menu ul ul li{
+.site-header ul.menu ul li{
     margin-left:0;
     width:220px;
 }
 	
 #headerNav ul li ul li,
 #headerNav ul li ul li ul li,	
- .site-header .menu ul li ul li,
+ .site-header .menu li ul li,
  .site-header .menu ul li ul li ul li{
     border-top:1px solid #666666;
 }
@@ -784,7 +788,8 @@ Which is why i'm adding ".site-header .menu" to all instances of "header nav" an
 #headerNav li.over ul,
 .site-header .menu li:hover ul,
 .site-header .menu ul li ul li:hover ul, 
-.site-header .menu li.over ul{
+.site-header .menu li.over ul
+.menu .sub-menu li:hover ul{
 	opacity:1;
 	box-shadow:0.25px 1px 3px #666
 }
@@ -796,19 +801,67 @@ Which is why i'm adding ".site-header .menu" to all instances of "header nav" an
 .site-header .menu li:hover ul li a,
 .site-header .menu ul li ul li:hover ul li a, 
 .site-header .menu li.over ul li a{
-    padding:6px 10px;
+   /* padding:6px 10px;
 	max-height:200px;
-	overflow:hidden;
+	overflow:hidden;*/
 }
 #headerNav ul li:hover ul li:first-child,
 .site-header .menu ul li:hover ul li:first-child{
     border-top:none;
 }
+
 #headerNav ul li ul li ul,
-.site-header .menu ul li ul li ul{
+.site-header .menu li ul li ul{
+	position:relative;
 	left:220px;
+	top:2px;
+	/*top:0;
+	left:50px;
+	top:20px;*/
 }
+
+.sub-menu li{
+	height:2.375em;
+}
+
+.sub-menu .sub-menu li{
+	top:-2.375em;
+	
+}
+
+
+/*
+.bliss_full_width_nav,
+.site-header .menu .sub-menu li:hover .sub-menu{
+	display:block;
+	left:400px;
+}
+*/
+
 /* end headerNav */
+
+
+.bliss_full_width_nav{
+	display:block;
+	width:100%;
+}
+
+.bliss_full_width_nav,
+#headerNav.bliss_full_width_nav{
+	padding-bottom:3px;
+	margin-bottom:2em;
+}
+
+.bliss_full_width_nav > ul,
+#headerNav.bliss_full_width_nav > ul{
+	padding:3px 2.9%;
+	margin:0 auto;
+}
+
+.bliss_full_width_nav > ul > li > a:hover,
+#headerNav.bliss_full_width_nav > ul > li > a:hover{text-decoration:underline}
+
+
 
 /*
 begin collapsing-nav-menu.css
@@ -898,6 +951,7 @@ end collapsing-nav-menu.css
 .searchform{
     clear:both;
     float:right;
+	margin-bottom:12px;
 }
 
 @media screen and (min-width:681px) and (max-width:760px){
@@ -1301,18 +1355,25 @@ body.blue #container{background-color:#d8ecf4}
 body.blue a{color:#0074A2}
 body.blue a:hover{color:#2ac3ff}
 body.blue .site-header .menu > ul > li > a,
-body.blue #headerNav > ul > li > a{background-color:#0074A2;color:#d8ecf4}
+body.blue #headerNav > ul > li > a,
+body.blue .bliss_full_width_nav{background-color:#0074A2;color:#d8ecf4}
 body.blue .site-header .menu > ul > li > a:hover,
 body.blue #headerNav > ul > li > a:hover{background-color:#007fb1;color:#d8ecf4}
+body.blue .bliss_full_width_nav > ul > li > a:hover,
+body.blue #headerNav.bliss_full_width_nav > ul > li > a:hover{background-color:#0074A2;color:#2ac3ff;}
+
 
 body.green{background-color:#018113}
 body.green #container{background-color:#c4ffc5}
 body.green a{color:#00650f}
 body.green a:hover{color:#018113}/*0F0*/
 body.green .site-header .menu > ul > li > a,
-body.green #headerNav > ul > li > a{background-color:#00650f;color:#c4ffc5}
+body.green #headerNav > ul > li > a,
+body.green .bliss_full_width_nav{background-color:#00650f;color:#c4ffc5}
 body.green .site-header .menu > ul > li > a:hover,
 body.green #headerNav > ul > li > a:hover{background-color:#018113;}
+body.green .bliss_full_width_nav > ul > li > a:hover,
+body.green #headerNav.bliss_full_width_nav > ul > li > a:hover{background-color:#00650f; color:#c4ffc5;}
 
 
 body.maroon{background-color:#540e1f;}
@@ -1320,9 +1381,12 @@ body.maroon #container{background-color:#7b7f80;/* That's dark grey.  If you pre
 body.maroon a{color:#540e1f}
 body.maroon a:hover{color:#921936}
 body.maroon .site-header .menu > ul > li > a,
-body.maroon #headerNav > ul > li > a{background-color:#540e1f;color:#9f9f9f}/*a3a7a9;*/
+body.maroon #headerNav > ul > li > a,
+body.maroon .bliss_full_width_nav{background-color:#540e1f;color:#9f9f9f}/*a3a7a9;*/
 body.maroon .site-header .menu > ul > li > a:hover,
 body.maroon #headerNav > ul > li > a:hover{background-color:#921936/*;color:#540e1f*/}
+body.maroon .bliss_full_width_nav > ul > li > a:hover,
+body.maroon #headerNav.bliss_full_width_nav > ul > li > a:hover{background-color:#540e1f;}
 
 
 body.light{background-color:#EFEFEF;}
@@ -1330,19 +1394,24 @@ body.light #container{background-color:#F8F8F8;}
 body.light a{color:#656869}
 body.light a:hover{color:#a3a7a9}
 body.light .site-header .menu > ul > li > a,
-body.light #headerNav > ul > li > a{background-color:#656869;color:#F8F8F8}/*color:#a3a7a9*/
+body.light #headerNav > ul > li > a,
+body.light .bliss_full_width_nav{background-color:#656869;color:#F8F8F8}/*color:#a3a7a9*/
 body.light .site-header .menu > ul > li > a:hover,
 body.light #headerNav > ul > li > a:hover{background-color:#a3a7a9;color:#444647}/*656869*/
+body.light .bliss_full_width_nav > ul > li > a:hover,
+body.light #headerNav.bliss_full_width_nav > ul > li > a:hover{background-color:#656869;color:#a3a7a9}
 
 body.dark{background-color:#666666;}
 body.dark #container{background-color:#a3a7a9;}
 body.dark a{color:#444647}
 body.dark a:hover{color:#656869}
 body.dark .site-header .menu > ul > li > a,
-body.dark #headerNav > ul > li > a{background-color:#444647;color:#a3a7a9}
+body.dark #headerNav > ul > li > a,
+body.dark .bliss_full_width_nav{background-color:#444647;color:#a3a7a9}
 body.dark .site-header .menu > ul > li > a:hover,
 body.dark #headerNav > ul > li > a:hover{background-color:#656869;color:#eee}
-
+body.dark .bliss_full_width_nav > ul > li > a:hover,
+body.dark #headerNav.bliss_full_width_nav > ul > li > a:hover{background-color:#444647;color:#a3a7a9;}
 
 
 /* ==========================================================================

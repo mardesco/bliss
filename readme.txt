@@ -1,11 +1,11 @@
 === Bliss ===
-Author: Jesse Smith for Mardesco
+Author: Mardesco
 Author URI: http://www.mardesco.com
 Donate link: http://www.mardesco.com/payments/
 Theme URI: http://www.mardesco.com/themes/bliss/
-Tags: responsive,responsive-layout,mobile,options,theme-options,custom-header,custom-background,custom-logo,custom-width
+Tags:  blue,custom-header,custom-background,custom-logo,custom-width,green,grey,featured-images,left-sidebar,maroon,mobile,options,responsive,responsive-layout,right-sidebar,theme-options
 Requires at least: 3.7
-Tested up to: 4.0.1
+Tested up to: 4.1
 Stable tag: trunk
 License: Bliss WordPress theme, copyright 2014 by Mardesco.  Bliss is distributed under the terms of the GNU GPLv2
 
@@ -111,6 +111,8 @@ The photograph of the trees and clouds used as the "featured image" in the theme
 
 3. Add a Featured Image to your homepage, or create a slideshow as described in the Frequently Asked Questions.
 
+4. Under Appearance > Theme Options > Basic Settings, for the "Header navigation menu style," select the option "Full-width solid-color navigation menu..." and click "Save"
+
 = Removal =
 
 1. Deactivate and uninstall the theme from your installation's Admin interface, Appearance > Themes
@@ -180,8 +182,9 @@ Alternatively, you can eliminate the container width setting, for a layout that 
 
 == Changelog ==
 
-0.1.0 Fix title tag display for custom homepage (as described at http://codex.wordpress.org/Function_Reference/wp_title#Covering_Homepage). 
-0.0.13 Change file name page-full-width.php to template-full-width.php
+0.1.1 Add the full-width menu bar design feature.  Button links in the header navigation menu are now optional.  404 "Not Found" error notifications are now optional per user feedback.  Add support for 3-deep nested header nav dropdown menus.  Additional CSS fixes.  New screenshot.  
+0.1.0 Fix title tag display for custom homepage (as described at http://codex.wordpress.org/Function_Reference/wp_title#Covering_Homepage). Add blog name to title tag on all other pages.  Assorted minor CSS rendering fixes and adjustments.  
+0.0.13 Change file name page-full-width.php to template-full-width.php <-- This version was the initial release on WordPress.org
 0.0.12 Trac ticket changes: additional footer nav menu CSS fixes; remove custom template declarations from non-custom template files
 0.0.11 Correct mistyped CSS rule for footer nav menu
 0.0.10 Correct action hook to 'after_setup_theme'

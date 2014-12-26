@@ -45,7 +45,7 @@ function optionsframework_options() {
 	// logo in headerbar.
 	$options[] = array(
 		'name' => __('Your Logo', 'bliss'),
-		'desc' => __('Add your logo to the theme headerbar.', 'bliss'),
+		'desc' => __('Add your logo to the theme headerbar. Recommend a .png file with transparent background, scaled to 90px high or smaller. ', 'bliss'),
 		'id' => 'bliss_logo',
 		'type' => 'upload'
 		);	
@@ -59,6 +59,8 @@ function optionsframework_options() {
 		'std' => '',
 		'type' => 'text'
 		);
+		
+	
 		
 	
 	// selectable color scheme.
@@ -81,11 +83,31 @@ function optionsframework_options() {
 		);		
 	
 	
+
+	// select header navigation style
+	$header_nav_options_array = array(
+		'button' => __('Button-style header navigation  menu links (legacy default)', 'bliss'),
+		'full_width' => __('Full-width solid-color navigation menu bar with simple text links (recommended)', 'bliss')
+	);
+	
+	$options[] = array(
+		'name' => __('Header navigation menu style', 'bliss'),
+		'desc' => __('Choose from button-style links, or plain text links over a navigation menu bar that spans the full width of the content area.', 'bliss'),
+		'id' => 'bliss_header_nav_style',
+		'std' => 'button', 
+		'type' => 'radio',
+		'options' => $header_nav_options_array
+		);
+		
+	
+	
+	
 	// Advanced settings.
 	
 	$options[] = array(
 		'name' => __('Advanced Settings', 'bliss'),
-		'type' => 'heading');	
+		'type' => 'heading'
+		);	
 	
 	
 	$options[] = array(
@@ -93,6 +115,9 @@ function optionsframework_options() {
 		'desc' => __('These settings determine the overall layout and styling of your website.', 'bliss'),
 		'type' => 'info'
 		);	
+	
+	
+
 	
 	
 	// select sidebar options.
@@ -123,6 +148,30 @@ function optionsframework_options() {
 		'class' => 'mini',
 		'type' => 'text'
 		);	
+		
+	$options[] = array(
+		'name' => __('Miscellaneous', 'bliss'),
+		'desc' => __('More settings to customize your installation of Bliss. ', 'bliss'),
+		'type' => 'info'
+		);		
+		
+	
+	// New: make 404 (not found) email notifications optional	
+	$not_found_notifications = array(
+		'yes' => __('Yes', 'bliss'),
+		'no' => __('No', 'bliss'),		
+	);
+	
+
+	$options[] = array(
+		'name' => __('404 notifications by email', 'bliss'),
+		'desc' => __('Do you want to receive 404 notifications?  If enabled, this feature will send an email to the site administrator whenever a visitor to the site receives a 404 &quot;Not Found&quot; error. Useful for debugging; excessive on high-traffic sites per user feedback.  Default setting: &quot;No&quot;', 'bliss'),
+		'id' => 'bliss_404_notification',
+		'std' => 'no',
+		'type' => 'radio',
+		'options' => $not_found_notifications
+		);		
+	
 	
 	// Slideshow Settings
 	

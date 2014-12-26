@@ -79,7 +79,8 @@ function bliss_style_links(){
 	$main_stylesheet  = get_stylesheet_uri();
 	wp_enqueue_style( 'bliss_style', $main_stylesheet, false );
 	
-	$font_url = 'http://fonts.googleapis.com/css?family=Merriweather:700italic';
+	// as of version 0.1.1 the font url is now a relative protocol.
+	$font_url = '//fonts.googleapis.com/css?family=Merriweather:700italic';
 	wp_enqueue_style( 'Merriweather', $font_url, false);
 	
 }
