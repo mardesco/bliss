@@ -185,6 +185,7 @@ Alternatively, you can eliminate the container width setting, for a layout that 
 
 == Changelog ==
 
+0.1.3 Corrected additional ThemeCheck requirements.
 0.1.2  New screenshot.
 0.1.1 Add the full-width menu bar design feature.  Button links in the header navigation menu are now optional.  404 "Not Found" error notifications are now optional per user feedback.  Add support for 3-deep nested header nav dropdown menus.  Add featured images to blogroll presentation. Additional CSS fixes.    
 0.1.0 Fix title tag display for custom homepage (as described at http://codex.wordpress.org/Function_Reference/wp_title#Covering_Homepage). Add blog name to title tag on all other pages.  Assorted minor CSS rendering fixes and adjustments.  

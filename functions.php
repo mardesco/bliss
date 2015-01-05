@@ -269,6 +269,7 @@ function bliss_add_editor_styles() {
 	add_theme_support('post-thumbnails');
 	add_theme_support('custom-header');
 	add_theme_support('custom-background');
+	add_theme_support('title-tag');// since WordPress 4.1
 
 
 	/* theme support, as REQUIRED by ThemeCheck */

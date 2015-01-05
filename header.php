@@ -10,10 +10,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	
+	<?php 
+		$bliss_display_name = esc_attr(get_bloginfo('name'));
+	?>
 	<title><?php 
-	$bliss_display_name = esc_attr(get_bloginfo('name'));
-	
+
 	wp_title( ' : ' . $bliss_display_name, true, 'right' ); 
 	
 	?></title>
@@ -44,7 +45,7 @@
 		$bliss_header_nav_style = of_get_option('bliss_header_nav_style', 'button');//full_width
 		
 		if($bliss_header_nav_style == 'full_width'){
-			_e(' no-button-nav');
+			_e(' no-button-nav', 'bliss');
 		}
 	
 	?>">
