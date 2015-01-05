@@ -22,6 +22,17 @@ if (have_posts()) :
     ?></h1>
 	
     <?php	
+	
+	// version 0.1.1 adds post thumbnails to blogroll
+		if ( has_post_thumbnail() ) {
+			echo '<div class="center featured-image-container">';
+			printf('<a href="%s">', esc_attr(get_the_permalink()));
+			the_post_thumbnail();
+			echo '</a>
+			</div>';	
+		}	
+	
+	
 	// this template will probably usually be used to display the content on the blog home page.
     the_excerpt();
     ?>

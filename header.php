@@ -41,7 +41,7 @@
 	<header class="site-header clearfix<?php 
 
 		// header navigation menu style.
-		$bliss_header_nav_style = of_get_option('bliss_header_nav_style', 'full_width');
+		$bliss_header_nav_style = of_get_option('bliss_header_nav_style', 'button');//full_width
 		
 		if($bliss_header_nav_style == 'full_width'){
 			_e(' no-button-nav');
@@ -97,11 +97,14 @@
 		
 		
 		if($bliss_header_nav_style == 'button'){
+		
+			// the button-style nav menu is within the header element.
+		
 		?>
         
 <!-- primary navigation menu. -->
 
-		<div id="headerNavWrap">
+		<div id="headerNavWrap" class="bliss-header-nav">
 			<?php
 
 			wp_nav_menu(array(
@@ -119,18 +122,20 @@
 	
 	}else{
 	
+		// the full-width style nav menu is below the header element.
+	
 	?>
 	
 	</header>
 	
-		<div id="headerNavWrap">
+		<div id="headerNavWrap" class="bliss-header-nav bliss-full-wrap">
 			<?php
 
 			wp_nav_menu(array(
 				'theme_location' => 'header-nav',
 				'container' => 'nav',
 				'container_id' => 'headerNav',
-				'container_class' => 'clearfix bliss_full_width_nav'
+				'container_class' => 'clearfix bliss-full-width-nav'
 				));
 
 			?>

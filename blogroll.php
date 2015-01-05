@@ -104,8 +104,12 @@ if ($innerLoop->have_posts()) {
 		// recommended by ThemeCheck.
 		// via http://codex.wordpress.org/Function_Reference/add_theme_support
 		if ( has_post_thumbnail() ) {
+			echo '<div class="center featured-image-container">';
+			printf('<a href="%s">', esc_attr(get_the_permalink()));
 			the_post_thumbnail();
-		}
+			echo '</a>
+			</div>';	
+		}	
 		
 		the_excerpt();// complete with readmore link via functions.php
       //the_content();

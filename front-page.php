@@ -44,6 +44,16 @@ if (have_posts()) :
 		<?php bliss_clean_title_link();//title of the post, with link
 		?></h1>
 		<?php
+		
+	// version 0.1.1 adds post thumbnails to blogroll
+		if ( has_post_thumbnail() ) {
+			echo '<div class="center featured-image-container">';
+			printf('<a href="%s">', esc_attr(get_the_permalink()));
+			the_post_thumbnail();
+			echo '</a>
+			</div>';	
+		}			
+		
 		the_excerpt();
 	}else{
 		// if your front page is a proper static homepage:

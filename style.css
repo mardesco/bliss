@@ -460,7 +460,7 @@ textarea {
 
 body {
   font-size: 1em;
-  line-height: 1.6; /* the font size, times 1.5 */
+  line-height: 1.6; /* the font size, times 1.6 */
 }
 	
 a{
@@ -666,6 +666,7 @@ img.alignright{
     float:left;
 	display:block;
 	height:90px;
+	margin-bottom:0;
 }
 
 .logotext{
@@ -685,6 +686,12 @@ img.alignright{
 	}
 }
 
+
+
+/*
+Header navigation styles, including suckerfish-style dropdown menus.
+*/
+
 #headerNavWrap{
 	clear:both;
 }
@@ -693,55 +700,75 @@ img.alignright{
 	z-index:150;
 }
 
+
+
+
 /*
-Called to my attention by theme review:
-If the user has not gone to the menu admin page and hit "save"
-after they install the theme, then the function wp_nav_menu
-does NOT return a menu wrapped in the specified parent container element.  
-Therefore, styles for the header navigation menu must not rely
-on the presence of that wrapper element, or its attributes.
-
-Which is why i'm adding ".site-header .menu" to all instances of "header nav" and "#headerNav" 
-*/
-
 #headerNav,
-.site-header .menu{
+.bliss-header-nav .menu
+*/
+.bliss-header-nav{
     text-align:left;
  /*   padding-bottom:4em; */
+
 }
+/*
 #headerNav ul,
-.site-header .menu ul{
+.bliss-header-nav .menu ul
+*/
+.bliss-header-nav ul{
     padding-left:0;
     margin-left:0;
 }
+/*
 #headerNav ul li,
-.site-header .menu ul li{
+.bliss-header-nav .menu ul li
+*/
+.bliss-header-nav ul li{
     float:left;
     margin-left:1em;
     padding-left:0;
 }
-#headerNav ul li:first-child,
-.site-header .menu ul li:first-child{/* the li that is the first child of the ul. */
+
+#headerNav > ul > li:first-child,
+.bliss-header-nav .menu > ul > li:first-child{/* the li that is the first child of the ul. */
+
     margin-left:0;
     padding-left:0;
 }
 	
 #headerNav  > ul > li,
-.site-header .menu > ul > li{position:relative}
+.bliss-header-nav .menu > ul > li{position:relative}
 
-#headerNav  > ul > li > a,
- .site-header .menu > ul > li > a{
+#headerNav  ul li a,
+ .bliss-header-nav .menu ul li a{
 	display:block;
 	padding:6px 9px;
 	border-radius:3px;
 }
 #headerNav a:hover,
-.site-header .menu a:hover{text-decoration:none}
+.bliss-header-nav .menu a:hover{text-decoration:none}
+
+
+
+
+
+
+
+
+
+/*
+,
+.bliss-header-nav ul li ul li ul
 
 #headerNav ul li ul,
 #headerNav ul li ul li ul,
 .site-header ul.menu  li ul,
-.site-header ul.menu  li ul li ul{
+.site-header ul.menu  li ul li ul
+*/
+
+
+.bliss-header-nav ul li ul{
     position:absolute;
     margin:0;
     padding:0;
@@ -753,73 +780,117 @@ Which is why i'm adding ".site-header .menu" to all instances of "header nav" an
     background-clip: border-box;
     width:220px;
    /* overflow:hidden; */
+   
 	z-index:150;	
 	border:1px solid #666666;
 	-webkit-transition:opacity 0.3s ease-out;-moz-transition:opacity 0.3s ease-out;-ms-transition:opacity 0.3s ease-out;-o-transition:opacity 0.3s ease-out;
 	transition:opacity 0.3s ease-out;
  }
- 
+ /*
  #headerNav ul li ul li a,
  #headerNav ul li ul li ul li a,
  .site-header ul.menu li ul li a,
- .site-header ul.menu li ul li ul li a{
+ .site-header ul.menu li ul li ul li a*/
+ .bliss-header-nav ul li ul li a{
 	display:block;
  	max-height:0;
 	-webkit-transition:max-height 1.5s ease-in;-moz-transition:max-height 1.5s ease-in;-ms-transition:max-height 1.5s ease-in;-o-transition:max-height 1.5s ease-in;
 	transition:max-height 1.5s ease-in;
 }
  
-
+/*
  #headerNav  ul ul li,
-.site-header ul.menu ul li{
+.site-header ul.menu ul li
+*/
+
+.bliss-header-nav ul ul li{
     margin-left:0;
     width:220px;
 }
-	
+	/*
 #headerNav ul li ul li,
 #headerNav ul li ul li ul li,	
  .site-header .menu li ul li,
- .site-header .menu ul li ul li ul li{
+ .site-header .menu ul li ul li ul li*/
+ 
+ .bliss-header-nav ul li ul li{
     border-top:1px solid #666666;
 }
 
+/*
 #headerNav li:hover ul,
 #headerNav ul li ul li:hover ul, 
 #headerNav li.over ul,
 .site-header .menu li:hover ul,
 .site-header .menu ul li ul li:hover ul, 
 .site-header .menu li.over ul
-.menu .sub-menu li:hover ul{
+.menu .sub-menu li:hover ul
+*/
+
+.bliss-header-nav ul li:hover > ul{
 	opacity:1;
 	box-shadow:0.25px 1px 3px #666
 }
 
-
+/*
+ #headerNav ul li ul li:hover a,
+ #headerNav ul li ul li ul li:hover a,
+ .site-header ul.menu li ul li:hover a,
+ .site-header ul.menu li ul li ul li a,
 #headerNav li:hover ul li a,
 #headerNav ul li ul li:hover ul li a, 
 #headerNav li.over ul li a,
 .site-header .menu li:hover ul li a,
 .site-header .menu ul li ul li:hover ul li a, 
-.site-header .menu li.over ul li a{
-   /* padding:6px 10px;
+.site-header .menu li.over ul li a
+*/
+
+.bliss-header-nav ul li:hover ul li a
+{
 	max-height:200px;
-	overflow:hidden;*/
-}
-#headerNav ul li:hover ul li:first-child,
-.site-header .menu ul li:hover ul li:first-child{
-    border-top:none;
+	
+	/*
+
+color:#F00;
+   padding:6px 10px;
+
+	display:block;
+
+
+   padding:6px 10px;
+	max-height:200px;
+	overflow:hidden;
+	*/
+	
 }
 
+/*
+#headerNav ul li:hover ul li:first-child,
+.site-header .menu ul li:hover ul li:first-child
+*/
+
+.bliss-header-nav ul li:hover ul li:first-child
+{
+    border-top:none;
+}
+/*
 #headerNav ul li ul li ul,
-.site-header .menu li ul li ul{
-	position:relative;
+.site-header .menu li ul li ul
+*/
+
+.bliss-header-nav ul > li > ul > li > ul
+{
+	/*position:relative;*/
 	left:220px;
-	top:2px;
+	top:38px;
 	/*top:0;
 	left:50px;
 	top:20px;*/
+	
+	
 }
 
+/*
 .sub-menu li{
 	height:2.375em;
 }
@@ -831,7 +902,7 @@ Which is why i'm adding ".site-header .menu" to all instances of "header nav" an
 
 
 /*
-.bliss_full_width_nav,
+.bliss-full-width-nav,
 .site-header .menu .sub-menu li:hover .sub-menu{
 	display:block;
 	left:400px;
@@ -840,28 +911,46 @@ Which is why i'm adding ".site-header .menu" to all instances of "header nav" an
 
 /* end headerNav */
 
-
-.bliss_full_width_nav{
+/*
+.bliss-full-width-nav,
+.bliss-full-wrap .menu{
 	display:block;
 	width:100%;
 }
+*/
 
-.bliss_full_width_nav,
-#headerNav.bliss_full_width_nav{
+.bliss-full-width-nav,
+#headerNav.bliss-full-width-nav,
+.bliss-full-wrap .menu{
 	padding-bottom:3px;
 	margin-bottom:2em;
 }
 
-.bliss_full_width_nav > ul,
-#headerNav.bliss_full_width_nav > ul{
+.bliss-full-width-nav > ul,
+#headerNav.bliss-full-width-nav > ul,
+.bliss-full-wrap .menu > ul{
 	padding:3px 2.9%;
 	margin:0 auto;
 }
 
-.bliss_full_width_nav > ul > li > a:hover,
-#headerNav.bliss_full_width_nav > ul > li > a:hover{text-decoration:underline}
+.bliss-full-width-nav > ul > li > a:hover,
+#headerNav.bliss-full-width-nav > ul > li > a:hover
+.bliss-full-wrap .menu >ul >li > a:hover{text-decoration:underline}
 
+.bliss-full-width-nav li:hover a,
+.bliss-full-width-nav a:hover{text-decoration:underline;}
 
+/* 
+If the user hasn't assigned a menu to a location, then the clearfix class is not applied. 
+Instead, we apply the clearfix properties to the parent element.
+*/
+.bliss-header-nav .menu:after{
+	clear:both;
+	display:block;
+	content:" ";
+	height:0;
+	overflow:hidden;
+	}
 
 /*
 begin collapsing-nav-menu.css
@@ -925,7 +1014,7 @@ body.logged-in.admin-bar #headerNavWrap.collapsed .open_menu_button{
 	clear:both;
 	float:none;
 	width:100%;
-	
+	padding:0;
 }
 
 #headerNavWrap.collapsed ul li a{
@@ -939,6 +1028,12 @@ body.logged-in.admin-bar #headerNavWrap.collapsed .open_menu_button{
 #headerNavWrap.collapsed ul li:hover ul,
 #headerNavWrap.collapsed ul li ul li{
 	display:none;
+}
+
+.collapsed .bliss-full-width-nav,
+.collapsed #headerNav.bliss-full-width-nav,
+.bliss-full-wrap.collapsed .menu{
+	padding-bottom:0;
 }
 
 /*
@@ -1220,12 +1315,16 @@ footer .content{
 }	
 
 
-/* sidebars */
-
-/* from standard desktop browsers, down to tablets.  min 775px wide */
-/* only large screens get both sidebars. */
-/* these devices see sidebars on BOTH SIDES */
-/* (only these large screens get a left sidebar.) */
+/* 
+ * sidebars 
+ *
+ * from standard desktop browsers, down to tablets.  min 775px wide 
+ * only large screens get both sidebars. 
+ * these devices see sidebars on BOTH SIDES 
+ * (only these large screens get a left sidebar.) 
+ *
+ */
+ 
 .hasLeftNav #main{
     margin-left:22.45%;
     padding-left:2.9%;/* must match right nav, below. */
@@ -1352,81 +1451,133 @@ from large regular screens down to tablets and narrow browsers, min. 680px wide.
 
 body.blue{background-color:#007fb1;}
 body.blue #container{background-color:#d8ecf4}
-body.blue a{color:#0074A2}
+body.blue a,
+body.blue h1,
+body.blue h2,
+body.blue h3,
+body.blue h4,
+body.blue h5, 
+body.blue h6{color:#0074A2}
 body.blue a:hover{color:#2ac3ff}
 body.blue .site-header .menu > ul > li > a,
 body.blue #headerNav > ul > li > a,
-body.blue .bliss_full_width_nav{background-color:#0074A2;color:#d8ecf4}
+body.blue .bliss-full-width-nav,
+body.blue .bliss-full-wrap .menu{background-color:#0074A2;color:#d8ecf4}
 body.blue .site-header .menu > ul > li > a:hover,
 body.blue #headerNav > ul > li > a:hover{background-color:#007fb1;color:#d8ecf4}
-body.blue .bliss_full_width_nav > ul > li > a:hover,
-body.blue #headerNav.bliss_full_width_nav > ul > li > a:hover{background-color:#0074A2;color:#2ac3ff;}
+body.blue .bliss-full-width-nav > ul > li > a:hover,
+body.blue #headerNav.bliss-full-width-nav > ul > li > a:hover,
+body.blue .bliss-full-wrap .menu > ul > li > a:hover{background-color:#0074A2;color:#2ac3ff;}
 
 
 body.green{background-color:#018113}
 body.green #container{background-color:#c4ffc5}
-body.green a{color:#00650f}
+body.green a,
+body.green h1,
+body.green h2,
+body.green h3,
+body.green h4,
+body.green h5, 
+body.green h6{color:#00650f}
 body.green a:hover{color:#018113}/*0F0*/
 body.green .site-header .menu > ul > li > a,
 body.green #headerNav > ul > li > a,
-body.green .bliss_full_width_nav{background-color:#00650f;color:#c4ffc5}
+body.green .bliss-full-width-nav,
+body.green .bliss-full-wrap .menu{background-color:#00650f;color:#c4ffc5}
 body.green .site-header .menu > ul > li > a:hover,
 body.green #headerNav > ul > li > a:hover{background-color:#018113;}
-body.green .bliss_full_width_nav > ul > li > a:hover,
-body.green #headerNav.bliss_full_width_nav > ul > li > a:hover{background-color:#00650f; color:#c4ffc5;}
+body.green .bliss-full-width-nav > ul > li > a:hover,
+body.green #headerNav.bliss-full-width-nav > ul > li > a:hover,
+body.green .bliss-full-wrap .menu > ul > li > a:hover{background-color:#00650f; color:#c4ffc5;}
 
 
 body.maroon{background-color:#540e1f;}
-body.maroon #container{background-color:#7b7f80;/* That's dark grey.  If you prefer pink, you could use: #ffd9e2;*/}
-body.maroon a{color:#540e1f}
+body.maroon #container{background-color:#9f9f9f;/*#7b7f80;/* That's light grey.  If you prefer pink, you could use: #ffd9e2;*/}
+body.maroon a,
+body.maroon h1,
+body.maroon h2,
+body.maroon h3,
+body.maroon h4,
+body.maroon h5, 
+body.maroon h6{color:#540e1f}
 body.maroon a:hover{color:#921936}
 body.maroon .site-header .menu > ul > li > a,
-body.maroon #headerNav > ul > li > a,
-body.maroon .bliss_full_width_nav{background-color:#540e1f;color:#9f9f9f}/*a3a7a9;*/
+body.maroon #headerNav > ul > li > a{background-color:#540e1f;color:#9f9f9f}/*a3a7a9;*/
 body.maroon .site-header .menu > ul > li > a:hover,
 body.maroon #headerNav > ul > li > a:hover{background-color:#921936/*;color:#540e1f*/}
-body.maroon .bliss_full_width_nav > ul > li > a:hover,
-body.maroon #headerNav.bliss_full_width_nav > ul > li > a:hover{background-color:#540e1f;}
+body.maroon .bliss-full-width-nav > ul > li > a:hover,
+body.maroon #headerNav.bliss-full-width-nav > ul > li > a:hover,
+body.maroon .bliss-full-wrap .menu > ul > li > a:hover{background-color:#540e1f;}
+body.maroon .bliss-full-width-nav,
+body.maroon .bliss-full-wrap .menu{background-color:#949494;/*333;*/}
+body.maroon #headerNav.bliss-full-width-nav > ul > li > a,
+body.maroon .bliss-full-wrap .menu a{background-color:#949494;color:#540e1f;}
+body.maroon #headerNav.bliss-full-width-nav > ul > li .sub-menu li > a,
+body.maroon .bliss-full-wrap .menu .sub-menu a{
+	background-color:inherit;
+}
+body.maroon #headerNav.bliss-full-width-nav > ul > li > a:hover,
+body.maroon .bliss-full-wrap .menu > ul > li > a:hover{/*color:#921936;*/color:#9f9f9f;}
+body.maroon  .shadow{box-shadow: 0px 0px 3px #921936;}
+body.maroon #headerNav.bliss-full-width-nav > ul > li > ul > li > a,
+body.maroon .bliss-full-wrap .menu li li a{/*background-color:#949494;color:#9f9f9f;*//*background-color:#9f9f9f;color:#921936;*/}
 
 
 body.light{background-color:#EFEFEF;}
 body.light #container{background-color:#F8F8F8;}
-body.light a{color:#656869}
+body.light a,
+body.light h1,
+body.light h2,
+body.light h3,
+body.light h4,
+body.light h5, 
+body.light h6{color:#656869}
 body.light a:hover{color:#a3a7a9}
-body.light .site-header .menu > ul > li > a,
+body.light .bliss-header-nav .menu > ul > li > a,
 body.light #headerNav > ul > li > a,
-body.light .bliss_full_width_nav{background-color:#656869;color:#F8F8F8}/*color:#a3a7a9*/
+body.light .bliss-full-width-nav,
+body.light .bliss-full-wrap .menu{background-color:#656869;color:#F8F8F8}/*color:#a3a7a9*/
 body.light .site-header .menu > ul > li > a:hover,
 body.light #headerNav > ul > li > a:hover{background-color:#a3a7a9;color:#444647}/*656869*/
-body.light .bliss_full_width_nav > ul > li > a:hover,
-body.light #headerNav.bliss_full_width_nav > ul > li > a:hover{background-color:#656869;color:#a3a7a9}
+body.light .bliss-full-width-nav > ul > li > a:hover,
+body.light #headerNav.bliss-full-width-nav > ul > li > a:hover,
+body.light .bliss-full-wrap .menu > ul > li > a:hover{background-color:#656869;color:#a3a7a9}
 
 body.dark{background-color:#666666;}
 body.dark #container{background-color:#a3a7a9;}
-body.dark a{color:#444647}
+body.dark a,
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5, 
+body.dark h6{color:#444647}
 body.dark a:hover{color:#656869}
 body.dark .site-header .menu > ul > li > a,
 body.dark #headerNav > ul > li > a,
-body.dark .bliss_full_width_nav{background-color:#444647;color:#a3a7a9}
+body.dark .bliss-full-width-nav,
+body.dark .bliss-full-wrap .menu{background-color:#444647;color:#a3a7a9}
 body.dark .site-header .menu > ul > li > a:hover,
 body.dark #headerNav > ul > li > a:hover{background-color:#656869;color:#eee}
-body.dark .bliss_full_width_nav > ul > li > a:hover,
-body.dark #headerNav.bliss_full_width_nav > ul > li > a:hover{background-color:#444647;color:#a3a7a9;}
+body.dark .bliss-full-width-nav > ul > li > a:hover,
+body.dark #headerNav.bliss-full-width-nav > ul > li > a:hover,
+body.dark .bliss-full-wrap .menu > ul > li > a:hover{background-color:#444647;color:#a3a7a9;}
 
 
 /* ==========================================================================
-   Your Custom Style Rules
+   Don't Put Custom Style Rules Here
    ========================================================================== */
 
 /*
-	On second thought
-	best practice is to create a child theme
-	so that when you update this theme in the future
+	
+	Best practice is to create a child theme.
+	
+	That way, when you update this theme in the future
 	your custom rules won't be overwritten.
 */
 
 
-/* I'm putting print styles last so they will override any style declarations that weren't assigned to a media query. */
+/* Print styles go last so they will override any style declarations that weren't assigned to a media query. */
 
 /* =============================================================================
    Print styles.

@@ -36,6 +36,9 @@ If you require support or assistance, you will find that the WordPress forums ar
 = Bug reports & suggestions =
 If you spot a bug; if you notice a browser display inconsistency; or if you have an idea you'd like to see incorporated into a future update: please feel welcome to [post to the theme wiki](https://github.com/mardesco/bliss/wiki).
 
+= Known rendering issue =
+Heading fonts render with edges that appear rough or pixelated on Chrome 39.x for Windows.  A future release of this theme will examine the possibility of self-hosting the font (or a different font), to prevent the Chrome browser from importing the poorly supported .woff file.  See http://stackoverflow.com/questions/11487427/is-there-any-font-smoothing-in-google-chrome for a description of the issue, or contact the theme author with suggestions.
+
 == License ==
 
 = Bliss theme =
@@ -182,7 +185,8 @@ Alternatively, you can eliminate the container width setting, for a layout that 
 
 == Changelog ==
 
-0.1.1 Add the full-width menu bar design feature.  Button links in the header navigation menu are now optional.  404 "Not Found" error notifications are now optional per user feedback.  Add support for 3-deep nested header nav dropdown menus.  Additional CSS fixes.  New screenshot.  
+0.1.2  New screenshot.
+0.1.1 Add the full-width menu bar design feature.  Button links in the header navigation menu are now optional.  404 "Not Found" error notifications are now optional per user feedback.  Add support for 3-deep nested header nav dropdown menus.  Add featured images to blogroll presentation. Additional CSS fixes.    
 0.1.0 Fix title tag display for custom homepage (as described at http://codex.wordpress.org/Function_Reference/wp_title#Covering_Homepage). Add blog name to title tag on all other pages.  Assorted minor CSS rendering fixes and adjustments.  
 0.0.13 Change file name page-full-width.php to template-full-width.php <-- This version was the initial release on WordPress.org
 0.0.12 Trac ticket changes: additional footer nav menu CSS fixes; remove custom template declarations from non-custom template files

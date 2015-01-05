@@ -17,7 +17,7 @@
             <p class="credit spacer">
 				<?php
 				printf(
-				__( 'Copyright &#169; %d by %s. Powered by <a rel="nofollow" href="%s">Bliss</a> theme for <a rel="nofollow" href="%s">WordPress</a>', 'bliss' ),
+				__( 'Copyright &#169; %d by %s. Powered by <a rel="nofollow" href="%s">Bliss</a> for <a rel="nofollow" href="%s">WordPress</a>', 'bliss' ),
 				date('Y'), esc_attr(get_bloginfo('name')), 'http://www.mardesco.com/themes/bliss/', 'http://www.wordpress.org' );
             	?>
             </p>
