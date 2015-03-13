@@ -5,7 +5,7 @@ Donate link: http://www.mardesco.com/payments/
 Theme URI: http://www.mardesco.com/themes/bliss/
 Tags:  blue,custom-header,custom-background,custom-logo,custom-width,green,grey,featured-images,left-sidebar,maroon,mobile,options,responsive,responsive-layout,right-sidebar,theme-options
 Requires at least: 3.7
-Tested up to: 4.1
+Tested up to: 4.1.1
 Stable tag: trunk
 License: Bliss WordPress theme, copyright 2014 by Mardesco.  Bliss is distributed under the terms of the GNU GPLv2
 
@@ -60,6 +60,10 @@ The Options Framework is copyright 2013 by [Devin Price](http://wptheming.com/op
 = Merriweather Bold Italic font face =
 
 [Merriweather](http://www.google.com/fonts/specimen/Merriweather) is copyright 2013 by [Eben Sorkin](https://plus.google.com/106288796449831139244/about) and licensed under the [SIL open font license v1.1](http://scripts.sil.org/OFL). The Merriweather font face is an externally linked library.  It is not distributed with the theme code: website visitors download the .css font file from the Google Fonts API. 
+
+= Font Awesome icon typeface =
+
+[Font Awesome](http://fortawesome.github.io/Font-Awesome/) is copyright 2014 by [Dave Gandy](https://twitter.com/davegandy).  The typeface is licensed under the [SIL Open Font License v1.1](http://scripts.sil.org/OFL) and its accompanying CSS code is licensed under the [MIT license](http://opensource.org/licenses/mit-license.html).
 
 = Simple Breadcrumb Navigation = 
 
@@ -183,9 +187,21 @@ Alternatively, you can eliminate the container width setting, for a layout that 
 4. Click "Save Options."
 5. Your website's container element's width has been set.
 
+= Add icons =
+
+See the [Font Awesome documentation](http://fortawesome.github.io/Font-Awesome/examples/) for examples on adding icons to your website. 
+
+= Content columns =
+
+For responsive content columns as seen in this theme's screenshot.png, all you need is a container element with the CSS class name "halves" or "thirds" wrapped around corresponding content elements with the CSS class name "one-third" or "one-half".
+
 == Changelog ==
 
-0.1.3 Corrected additional ThemeCheck requirements.
+1.0.0 Updated theme is released on WordPress.org. 
+0.1.6 Add widget areas to footer.  Add social icon menu with Font Awesome icons to footer. Make the "branding" text smaller. New screenshot.png
+0.1.5 Change default menu style from legacy buttons to the full-width nav menu introduced in version 0.1.1 (will only affect users who have never saved their preference: primarily, new theme downloads).  Add brown color scheme option.  Add container margin on left & right for mobile device screens; reduce top/bottom container margins for same.  Some code cleaning.
+0.1.4 Add "Font Awesome" icon set.  Make rounded corners optional, for people who prefer that square look.  Front page template now uses the_content instead of the_excerpt.  
+0.1.3 Corrected additional ThemeCheck requirements.  This is the second version released on WordPress.org
 0.1.2  New screenshot.
 0.1.1 Add the full-width menu bar design feature.  Button links in the header navigation menu are now optional.  404 "Not Found" error notifications are now optional per user feedback.  Add support for 3-deep nested header nav dropdown menus.  Add featured images to blogroll presentation. Additional CSS fixes.    
 0.1.0 Fix title tag display for custom homepage (as described at http://codex.wordpress.org/Function_Reference/wp_title#Covering_Homepage). Add blog name to title tag on all other pages.  Assorted minor CSS rendering fixes and adjustments.  

@@ -68,6 +68,7 @@ function optionsframework_options() {
 		'blue' => __('Blue', 'bliss'),
 		'green' => __('Green', 'bliss'),
 		'maroon' => __('Maroon', 'bliss'),
+		'brown' => __('Brown', 'bliss'),
 		'light' => __('Light Grey', 'bliss'),
 		'dark' => __('Dark Grey', 'bliss')
 	);	
@@ -86,21 +87,35 @@ function optionsframework_options() {
 
 	// select header navigation style
 	$header_nav_options_array = array(
-		'button' => __('Button-style header navigation  menu links (legacy default)', 'bliss'),
-		'full_width' => __('Full-width solid-color navigation menu bar with simple text links (recommended)', 'bliss')
+		'button' => __('Button-style header navigation  menu links (legacy)', 'bliss'),
+		'full_width' => __('Full-width solid-color navigation menu bar with simple text links (recommended default)', 'bliss')
 	);
 	
 	$options[] = array(
 		'name' => __('Header navigation menu style', 'bliss'),
 		'desc' => __('Choose from button-style links, or plain text links over a navigation menu bar that spans the full width of the content area.', 'bliss'),
 		'id' => 'bliss_header_nav_style',
-		'std' => 'button', 
+		'std' => 'full_width', 
 		'type' => 'radio',
 		'options' => $header_nav_options_array
 		);
 		
 	
+	// new in v.0.1.4 - make rounded corners optional
+	$rcr_options_array = array(
+		'rounded' => __('Round corners for a fancy design.', 'bliss'),
+		'square' => __('Square corners for a clean, modern look. (Default)', 'bliss')
+	);
 	
+	$options[] = array(
+		'name' => __('Square corners, or round corners?', 'bliss'),
+		'desc' => __('Select whether you want your theme to display with fancy round corners, or clean square corners.', 'bliss'),
+		'id' => 'bliss_corner_style',
+		'std' => 'square',
+		'type' => 'radio',
+		'options' => $rcr_options_array
+	);
+		
 	
 	// Advanced settings.
 	

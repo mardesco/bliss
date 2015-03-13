@@ -2,13 +2,8 @@
 //home.php
 
 // this template will be overridden by front-page.php !!!
-// If you're trying to change your site's homepage, that's the template to edit.
+// If you're trying to change your site's static homepage, that's the template to edit.
 // This file determines the style of your BLOG home.
-
-//per the wp codex:
-//"The home page template, which is the front page by default. If you use a static front page this is the template for the page with the latest posts. "
-//-http://codex.wordpress.org/Theme_Development
-
 
 get_header();
 

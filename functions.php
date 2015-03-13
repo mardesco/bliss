@@ -82,6 +82,10 @@ function bliss_style_links(){
 	// as of version 0.1.1 the font url is now a relative protocol.
 	$font_url = '//fonts.googleapis.com/css?family=Merriweather:700italic';
 	wp_enqueue_style( 'Merriweather', $font_url, false);
+		
+	// version 0.1.4 adds icons by Font Awesome
+	$icon_url = get_template_directory_uri() . '/css/font-awesome.min.css';
+	wp_enqueue_style( 'font-awesome', $icon_url, false);
 	
 }
 add_action( 'wp_enqueue_scripts', 'bliss_style_links', 2 );
@@ -183,12 +187,27 @@ function bliss_user_customizations(){
 		<style type="text/css">
 			#container{width:%dpx;}
 			@media screen and (max-width:%dpx){
-				#container{width:100%%;}
+				#container{
+					width:90%%;
+					margin:35px 5%%;
+				}
 			}			
 		</style>', $width, $breakpoint);
 	}else{
 		if(isset($width) && $width === 0){
-			echo '<style type="text/css">#container{width:100%}</style>';
+			echo '<style type="text/css">
+				#container{
+					width:100%;
+					margin-left:0;
+					margin-right:0;
+				}
+				@media only screen and (max-width:1023px){
+					#container{
+						width:100%;
+						margin:35px 0;
+					}
+				}
+			</style>';
 		}
 	}
 	$header_background = get_header_image();
@@ -225,13 +244,16 @@ add_filter('body_class', 'bliss_color_scheme');
 
 
 function bliss_font_in_footer(){
+	/*
+	We put the Google Fonts font in the footer and call it late in the stack, to give it time to load before applying the typeface to the content.
+	*/
 	echo '
 	<style type="text/css">
 		h1,h2,h3{font-family: "Merriweather", serif;font-style:italic;font-weight:700}
 	</style>
 	';
 }
-add_action('wp_footer', 'bliss_font_in_footer', 100);// we'll execute that last, in hopes the font file will have loaded.
+add_action('wp_footer', 'bliss_font_in_footer', 100);
 
 # end theme styles #
 
@@ -249,13 +271,15 @@ function bliss_clean_title_link(){
 
 // as per http://codex.wordpress.org/Function_Reference/wp_title#Covering_Homepage
 function bliss_homepage_title($title){
+	
+
 	if( empty( $title ) && ( is_home() || is_front_page() ) ) {
-		return __( esc_attr( get_bloginfo( 'name' ) ), 'bliss' ) . ' | ' . get_bloginfo( 'description' );
+		return esc_attr( get_bloginfo( 'name' )  . ' | ' .  get_bloginfo( 'description' ) );
 	  }
 	  return $title;
 	
 }
-add_filter( 'wp_title', 'bliss_homepage_title');
+add_filter( 'wp_title', 'bliss_homepage_title', 9);// call early, so it can be overridden by plugins
 
 // per theme review:
 // these calls to add_editor_style and add_theme_support

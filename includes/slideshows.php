@@ -68,16 +68,24 @@ function bliss_display_slideshow(){
 	
 	$string =  '<div id="bliss_slideshow" class="slider cycle-slideshow" data-cycle-slides="div" data-cycle-speed="600" data-cycle-timeout="3500" data-cycle-fx="tileSlide" data-cycle-tile-vertical="false" data-cycle-tile-count="12" data-cycle-swipe="true" data-cycle-pause-on-hover="true">';
 	
+	$number_of_slides = 0;
+	
 	for($i = 1; $i <= 5; $i++){
 		$slide = of_get_option('slideshow_'.$id.'_slide_'.$i);
 		if($slide){
 			
 			$string .= sprintf('<div class="slide"><img src="%s" alt="slide" /></div>', esc_url($slide) );
+			$number_of_slides++;
 			
 		}
 	}
 	
 	$string .= '</div>';
+	
+	if($number_of_slides == 0){
+		// may occur if user has previously set, then removed the slideshow
+		return false;
+	}
 	
 	return $string;
 	

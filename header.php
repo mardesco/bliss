@@ -13,11 +13,6 @@
 	<?php 
 		$bliss_display_name = esc_attr(get_bloginfo('name'));
 	?>
-	<title><?php 
-
-	wp_title( ' : ' . $bliss_display_name, true, 'right' ); 
-	
-	?></title>
 	
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -37,12 +32,19 @@
 
 <a href="#contentLink" class="visuallyhidden">Skip navigation</a>
 
-<div id="container" class="shadow rounded">
+<div id="container" class="shadow <?php
+	// a future release will upgrade to object-oriented programming, to arrest the propagation of global variables.
+	global $bliss_corner_style;
+	$bliss_corner_style = of_get_option('bliss_corner_style', 'square');
+	if($bliss_corner_style == 'rounded'){
+		_e( ' rounded', 'bliss');
+	}
+?>">
 
-	<header class="site-header clearfix<?php 
+	<header class="site-header clearfix <?php 
 
 		// header navigation menu style.
-		$bliss_header_nav_style = of_get_option('bliss_header_nav_style', 'button');//full_width
+		$bliss_header_nav_style = of_get_option('bliss_header_nav_style', 'full_width');//full_width
 		
 		if($bliss_header_nav_style == 'full_width'){
 			_e(' no-button-nav', 'bliss');

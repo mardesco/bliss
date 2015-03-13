@@ -2,10 +2,10 @@
 Theme Name: Bliss
 Author: Jesse Smith for Mardesco
 Theme URI: http://www.mardesco.com/themes/bliss/
-Description: A blissful website experience.  "Bliss" is a mobile-friendly, responsive WordPress theme with a clean, modern design.  Includes built-in slideshows, theme color switcher, and a convenient site logo uploader.  
+Description: A blissful website experience.  "Bliss" is a mobile-friendly, responsive WordPress theme with a clean, modern design.  Feature-rich theme includes built-in slideshows, theme color switcher, a convenient site logo uploader, and more!  
 Author URI: http://www.mardesco.com
-Version: 0.1.3
-Tags: blue,custom-header,custom-background,green,gray,featured-images,left-sidebar,responsive-layout,right-sidebar,theme-options
+Version: 1.0.0
+Tags: blue,brown,custom-header,custom-background,green,gray,featured-images,left-sidebar,responsive-layout,right-sidebar,theme-options
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -550,7 +550,8 @@ hr {
 
 /* some more default classes */
 .aligncenter,
-.center{
+.center,
+#main p.center{
     text-align:center;
     margin:0 auto;
 }
@@ -646,7 +647,40 @@ img.alignright{
     box-shadow: 0px 0px 3px #000000;
 }
 
+.hidden-text{
+	text-indent:-99999px;
+}
+
 /* end default styles */
+
+/* helper classes for multi-column grid layout sections */
+
+.thirds,
+.halves{width:100%;position:relative;clear:both}
+
+.thirds{margin:2em 0}
+.thirds .one-third{display:block;position:relative;width:30%;padding:0;margin-right:3.333333333333%;float:left}
+.thirds .one-third:last-child,
+.thirds .one-third.last-child{margin-right:0}
+.halves{margin:0 0 1.5625em 0}
+.halves .one-half{width:44.4444444%;float:left}
+.halves .one-half:first-child,
+.halves .first_half{padding-right:11.11111%}
+.halves .one-half h2{padding-top:0}
+.one-half iframe,.one-half img{margin:auto;text-align:center;max-width:100%;height:auto}
+
+@media only screen and (max-width:850px){
+	.thirds .one-third{float:none;clear:both;width:auto;margin:0.1875em auto 1.25em auto}
+	.thirds .one-third:first-child{margin-left:auto}
+	.thirds .one-third:last-child{margin-right:auto}
+	.halves .one-half{float:none;clear:both;width:100%;margin:0}
+	.halves .one-half:first-child,
+	.halves .first_half{padding-right:0}	
+	.halves .one-half h2{padding-top:1.736111em}
+}
+
+/* end column layouts */
+
 
 
 /* ==========================================================================
@@ -659,7 +693,7 @@ img.alignright{
 }
 
 .site-header.no-button-nav{
-	margin-bottom:0.4375em;
+	margin-bottom:0;
 }
 
 .site-header .logo{
@@ -667,22 +701,26 @@ img.alignright{
 	display:block;
 	height:90px;
 	margin-bottom:0;
+	margin-top:13px;
 }
 
 .logotext{
-	font-size:1.875em; /* within an h1 tag = 16 * 2 * 1.875 = 60px */
+	font-size:1.40625em; /* within an h1 tag = 16 * 2 * 1.40625 = 45px. Formerly 1.875 = 60px */
 	line-height:1;
 }
 
-.site-header .site-slogan{
+.site-header .site-slogan,
+.site-header h2.site-slogan{
     float:right;
 }
 
 @media screen and (max-width:760px){/* was 680. */
-	.site-header .site-slogan{
+	.site-header .site-slogan,
+	.site-header h2.site-slogan{
 		float:left;
 		clear:both;
 		font-size:1.25em;
+		margin:0.25em 0;
 	}
 }
 
@@ -702,28 +740,17 @@ Header navigation styles, including suckerfish-style dropdown menus.
 
 
 
-
-/*
-#headerNav,
-.bliss-header-nav .menu
-*/
 .bliss-header-nav{
     text-align:left;
- /*   padding-bottom:4em; */
-
 }
-/*
-#headerNav ul,
-.bliss-header-nav .menu ul
-*/
+
+
 .bliss-header-nav ul{
     padding-left:0;
     margin-left:0;
 }
-/*
-#headerNav ul li,
-.bliss-header-nav .menu ul li
-*/
+
+
 .bliss-header-nav ul li{
     float:left;
     margin-left:1em;
@@ -741,31 +768,18 @@ Header navigation styles, including suckerfish-style dropdown menus.
 .bliss-header-nav .menu > ul > li{position:relative}
 
 #headerNav  ul li a,
- .bliss-header-nav .menu ul li a{
+.bliss-header-nav .menu ul li a{
 	display:block;
 	padding:6px 9px;
+}
+
+.rounded #headerNav  ul li a,
+.rounded .bliss-header-nav .menu ul li a{
 	border-radius:3px;
 }
+
 #headerNav a:hover,
 .bliss-header-nav .menu a:hover{text-decoration:none}
-
-
-
-
-
-
-
-
-
-/*
-,
-.bliss-header-nav ul li ul li ul
-
-#headerNav ul li ul,
-#headerNav ul li ul li ul,
-.site-header ul.menu  li ul,
-.site-header ul.menu  li ul li ul
-*/
 
 
 .bliss-header-nav ul li ul{
@@ -774,156 +788,70 @@ Header navigation styles, including suckerfish-style dropdown menus.
     padding:0;
 	opacity:0;
     background-color:#ffffff;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    -moz-background-clip:border-box;
-    background-clip: border-box;
     width:220px;
-   /* overflow:hidden; */
-   
 	z-index:150;	
 	border:1px solid #666666;
 	-webkit-transition:opacity 0.3s ease-out;-moz-transition:opacity 0.3s ease-out;-ms-transition:opacity 0.3s ease-out;-o-transition:opacity 0.3s ease-out;
 	transition:opacity 0.3s ease-out;
  }
- /*
- #headerNav ul li ul li a,
- #headerNav ul li ul li ul li a,
- .site-header ul.menu li ul li a,
- .site-header ul.menu li ul li ul li a*/
+ 
+ .rounded .bliss-header-nav ul li ul{
+     -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-background-clip:border-box;
+    background-clip: border-box;
+ }
+
+ 
  .bliss-header-nav ul li ul li a{
 	display:block;
  	max-height:0;
 	-webkit-transition:max-height 1.5s ease-in;-moz-transition:max-height 1.5s ease-in;-ms-transition:max-height 1.5s ease-in;-o-transition:max-height 1.5s ease-in;
 	transition:max-height 1.5s ease-in;
 }
- 
-/*
- #headerNav  ul ul li,
-.site-header ul.menu ul li
-*/
+
 
 .bliss-header-nav ul ul li{
     margin-left:0;
     width:220px;
 }
-	/*
-#headerNav ul li ul li,
-#headerNav ul li ul li ul li,	
- .site-header .menu li ul li,
- .site-header .menu ul li ul li ul li*/
+
+
  
  .bliss-header-nav ul li ul li{
     border-top:1px solid #666666;
 }
-
-/*
-#headerNav li:hover ul,
-#headerNav ul li ul li:hover ul, 
-#headerNav li.over ul,
-.site-header .menu li:hover ul,
-.site-header .menu ul li ul li:hover ul, 
-.site-header .menu li.over ul
-.menu .sub-menu li:hover ul
-*/
 
 .bliss-header-nav ul li:hover > ul{
 	opacity:1;
 	box-shadow:0.25px 1px 3px #666
 }
 
-/*
- #headerNav ul li ul li:hover a,
- #headerNav ul li ul li ul li:hover a,
- .site-header ul.menu li ul li:hover a,
- .site-header ul.menu li ul li ul li a,
-#headerNav li:hover ul li a,
-#headerNav ul li ul li:hover ul li a, 
-#headerNav li.over ul li a,
-.site-header .menu li:hover ul li a,
-.site-header .menu ul li ul li:hover ul li a, 
-.site-header .menu li.over ul li a
-*/
 
-.bliss-header-nav ul li:hover ul li a
-{
+.bliss-header-nav ul li:hover ul li a{
 	max-height:200px;
-	
-	/*
 
-color:#F00;
-   padding:6px 10px;
-
-	display:block;
-
-
-   padding:6px 10px;
-	max-height:200px;
-	overflow:hidden;
-	*/
-	
 }
 
-/*
-#headerNav ul li:hover ul li:first-child,
-.site-header .menu ul li:hover ul li:first-child
-*/
 
-.bliss-header-nav ul li:hover ul li:first-child
-{
+.bliss-header-nav ul li:hover ul li:first-child{
     border-top:none;
 }
-/*
-#headerNav ul li ul li ul,
-.site-header .menu li ul li ul
-*/
 
-.bliss-header-nav ul > li > ul > li > ul
-{
-	/*position:relative;*/
+
+.bliss-header-nav ul > li > ul > li > ul{
+
 	left:220px;
 	top:38px;
-	/*top:0;
-	left:50px;
-	top:20px;*/
-	
-	
-}
 
-/*
-.sub-menu li{
-	height:2.375em;
-}
-
-.sub-menu .sub-menu li{
-	top:-2.375em;
-	
 }
 
 
-/*
-.bliss-full-width-nav,
-.site-header .menu .sub-menu li:hover .sub-menu{
-	display:block;
-	left:400px;
-}
-*/
-
-/* end headerNav */
-
-/*
-.bliss-full-width-nav,
-.bliss-full-wrap .menu{
-	display:block;
-	width:100%;
-}
-*/
 
 .bliss-full-width-nav,
 #headerNav.bliss-full-width-nav,
 .bliss-full-wrap .menu{
 	padding-bottom:3px;
-	margin-bottom:2em;
 }
 
 .bliss-full-width-nav > ul,
@@ -933,12 +861,21 @@ color:#F00;
 	margin:0 auto;
 }
 
+/* underline top-level nav menu links on hover state */
 .bliss-full-width-nav > ul > li > a:hover,
 #headerNav.bliss-full-width-nav > ul > li > a:hover
 .bliss-full-wrap .menu >ul >li > a:hover{text-decoration:underline}
 
 .bliss-full-width-nav li:hover a,
 .bliss-full-width-nav a:hover{text-decoration:underline;}
+
+/* but the dropdown menus should not get an underline. it looks terrible. */
+.bliss-full-width-nav > ul > li > .sub-menu > li > a:hover,
+#headerNav.bliss-full-width-nav > ul > li > .sub-menu > li > a:hover,
+.bliss-full-wrap .menu >ul >li > .sub-menu > li > a:hover,
+.bliss-full-width-nav li:hover .sub-menu a,
+.bliss-full-width-nav .sub-menu a:hover{text-decoration:none;}
+
 
 /* 
 If the user hasn't assigned a menu to a location, then the clearfix class is not applied. 
@@ -969,10 +906,13 @@ begin collapsing-nav-menu.css
 	background-color:#000;
 	color:#FFF;
 	cursor:pointer;
-	border-radius:4px;
 	position:absolute;
 	top:80px;
-	right:30px;
+	right:60px;
+}
+
+.rounded #headerNavWrap.collapsed .open_menu_button{
+	border-radius:4px;
 }
 
 /* adjust menu button position to account for the admin bar for logged-in users */
@@ -1044,7 +984,7 @@ end collapsing-nav-menu.css
 
 #searchform,
 .searchform{
-    clear:both;
+    clear:right;
     float:right;
 	margin-bottom:12px;
 }
@@ -1059,7 +999,7 @@ end collapsing-nav-menu.css
     #searchform,
     .searchform{
         float:none;
-		margin-bottom:20px;
+		margin-bottom:0;
     }
 }
 
@@ -1102,11 +1042,20 @@ end collapsing-nav-menu.css
     text-align:left;
 }
 
+#wrapper{padding-bottom:45px;}
+
 #wrapper,
 .rightSideNav,
 .leftSideNav,
 .sideNav{
-	margin-top:27px;
+	padding-top:60px;
+	padding-bottom:40px;
+}
+
+@media screen and (max-width:680px){
+	#wrapper{
+		padding-top:23px;
+	}
 }
 
 .rightSideNav h2,
@@ -1171,6 +1120,12 @@ adding .site-footer .menu to all instances of #footerNav.
     position:relative;
     left:-1em;
 }
+
+.site-footer .social-menu .menu > li > a:before{
+	content: ' ';
+	left:0;
+}
+
 #footerNav > li:first-child > a:before,
 .site-footer .menu > li:first-child > a:before {
     content:'';
@@ -1214,9 +1169,6 @@ ul.page-numbers li {
 
 ul.page-numbers a,
 ul.page-numbers span {
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
     background: -webkit-gradient(linear, left top, left bottom, from(#E4E3E3), to(#FFFFFF));
     background: -moz-linear-gradient(top,  #E4E3E3,  #FFFFFF);
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#E4E3E3', endColorstr='#FFFFFF');
@@ -1225,6 +1177,13 @@ ul.page-numbers span {
     text-decoration: none;
     border: 1px solid #ccc;
     color: #666;
+}
+
+.rounded ul.page-numbers a,
+.rounded ul.page-numbers span {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
 }
 
 ul.page-numbers a:hover,
@@ -1262,6 +1221,34 @@ ul.page-numbers span.current {
     top:0;
 }
 
+
+
+#container.rounded .site-header{
+	-moz-border-radius-topright: 3px;
+	-webkit-border-top-right-radius:3px;
+	border-top-right-radius:3px;
+	-moz-border-radius-topleft: 3px;
+	-webkit-border-top-left-radius:3px;	
+	border-top-left-radius:3px;
+    -moz-background-clip: padding; 
+    -webkit-background-clip: padding-box; 	
+	background-clip:padding-box;
+}
+
+#container.rounded .site-footer{
+	-moz-border-radius-bottomright: 3px;
+	-webkit-border-bottom-right-radius:3px;
+	border-bottom-right-radius:3px;
+	-moz-border-radius-bottomleft: 3px;
+	-webkit-border-bottom-left-radius:3px;	
+	border-bottom-left-radius:3px;
+    -moz-background-clip: padding; 
+    -webkit-background-clip: padding-box; 	
+	background-clip:padding-box;
+}
+
+
+
 /* end basic layout */
 
 /* ==========================================================================
@@ -1288,7 +1275,8 @@ Instead, apply padding to the elements within the container.
 
 @media only screen and (max-width:1023px){
     #container{
-        width:100%;
+        width:90%;
+		margin:35px 5%;
     }
 }
 
@@ -1296,9 +1284,9 @@ Instead, apply padding to the elements within the container.
 /*
 also, don't apply padding to the footer.  instead, add the padding to footer .content
 */
-.site-header,
+.site-header{padding:10px 2.9%}
 footer .content{
-	padding:10px 2.9%;
+	padding:60px 2.9% 10px;
 }
 .hasRightNav #main{padding-right:2.9%;}
 .hasLeftNav #main{padding-left:2.9%;}
@@ -1374,7 +1362,8 @@ from large regular screens down to tablets and narrow browsers, min. 680px wide.
 }
 
 .rightSideNav{
-    padding:0;
+    padding-right:0;
+	padding-left:0;
     float:left;
     /* don't set a padding-right, just calculate the width and margin-left correctly. */
     width:19.55%;
@@ -1429,6 +1418,7 @@ from large regular screens down to tablets and narrow browsers, min. 680px wide.
 /* make the slideshow more responsive */
 
 #bliss_slideshow_container{
+	margin-top:45px;
 	padding:0 2.9% 0.4375em 2.9%;
 	text-align:center;
 	z-index:10;
@@ -1468,6 +1458,9 @@ body.blue #headerNav > ul > li > a:hover{background-color:#007fb1;color:#d8ecf4}
 body.blue .bliss-full-width-nav > ul > li > a:hover,
 body.blue #headerNav.bliss-full-width-nav > ul > li > a:hover,
 body.blue .bliss-full-wrap .menu > ul > li > a:hover{background-color:#0074A2;color:#2ac3ff;}
+body.blue .contrast,
+body.blue .contrast a{color:#007fb1}
+body.blue .site-footer{border-top:1px solid #007fb1;background-color:#e2e2e2}
 
 
 body.green{background-color:#018113}
@@ -1489,10 +1482,14 @@ body.green #headerNav > ul > li > a:hover{background-color:#018113;}
 body.green .bliss-full-width-nav > ul > li > a:hover,
 body.green #headerNav.bliss-full-width-nav > ul > li > a:hover,
 body.green .bliss-full-wrap .menu > ul > li > a:hover{background-color:#00650f; color:#c4ffc5;}
+body.green .contrast,
+body.green .contrast a{color:#018113}
+body.green .site-footer{border-top:1px solid #018113;background-color:#e2e2e2;}
 
 
 body.maroon{background-color:#540e1f;}
-body.maroon #container{background-color:#9f9f9f;/*#7b7f80;/* That's light grey.  If you prefer pink, you could use: #ffd9e2;*/}
+body.maroon .site-header{background-color:#9f9f9f;}/* That's grey.  If you prefer pink, you could use: #ffd9e2;*/
+body.maroon #container{background-color:#e2e2e2;}
 body.maroon a,
 body.maroon h1,
 body.maroon h2,
@@ -1520,7 +1517,34 @@ body.maroon #headerNav.bliss-full-width-nav > ul > li > a:hover,
 body.maroon .bliss-full-wrap .menu > ul > li > a:hover{/*color:#921936;*/color:#9f9f9f;}
 body.maroon  .shadow{box-shadow: 0px 0px 3px #921936;}
 body.maroon #headerNav.bliss-full-width-nav > ul > li > ul > li > a,
-body.maroon .bliss-full-wrap .menu li li a{/*background-color:#949494;color:#9f9f9f;*//*background-color:#9f9f9f;color:#921936;*/}
+body.maroon .bliss-full-wrap .menu li li a{}
+body.maroon .contrast,
+body.maroon .contrast a{color:#540e1f}
+body.maroon .site-footer{border-top:1px solid #540e1f;background-color:#9f9f9f;}
+
+
+body.brown{background-color:#5a2a00;/*#401300;/*#521800;*/}
+body.brown #container{background-color:#fddec2}
+body.brown a,
+body.brown h1,
+body.brown h2,
+body.brown h3,
+body.brown h4,
+body.brown h5, 
+body.brown h6{color:#774111}/*7F2500*//*7F1800*/
+body.brown a:hover{color:#E86C0C}
+body.brown .site-header .menu > ul > li > a,
+body.brown #headerNav > ul > li > a,
+body.brown .bliss-full-width-nav,
+body.brown .bliss-full-wrap .menu{background-color:#774111;color:#fddec2}
+body.brown .site-header .menu > ul > li > a:hover,
+body.brown #headerNav > ul > li > a:hover{background-color:#5a2a00;color:#fddec2}
+body.brown .bliss-full-width-nav > ul > li > a:hover,
+body.brown #headerNav.bliss-full-width-nav > ul > li > a:hover,
+body.brown .bliss-full-wrap .menu > ul > li > a:hover{background-color:#774111;color:#E86C0C;}
+body.brown .contrast,
+body.brown .contrast a{color:#5a2a00}
+body.brown .site-footer{border-top:1px solid #5a2a00;background-color:#e2e2e2}
 
 
 body.light{background-color:#EFEFEF;}
@@ -1542,9 +1566,13 @@ body.light #headerNav > ul > li > a:hover{background-color:#a3a7a9;color:#444647
 body.light .bliss-full-width-nav > ul > li > a:hover,
 body.light #headerNav.bliss-full-width-nav > ul > li > a:hover,
 body.light .bliss-full-wrap .menu > ul > li > a:hover{background-color:#656869;color:#a3a7a9}
+body.light .contrast,
+body.light .contrast a{color:#656869}
+body.light .site-footer{border-top:1px solid #656869}
 
 body.dark{background-color:#666666;}
-body.dark #container{background-color:#a3a7a9;}
+body.dark #container{background-color:#eee;}
+body.dark .site-header{background-color:#a3a7a9}
 body.dark a,
 body.dark h1,
 body.dark h2,
@@ -1562,6 +1590,9 @@ body.dark #headerNav > ul > li > a:hover{background-color:#656869;color:#eee}
 body.dark .bliss-full-width-nav > ul > li > a:hover,
 body.dark #headerNav.bliss-full-width-nav > ul > li > a:hover,
 body.dark .bliss-full-wrap .menu > ul > li > a:hover{background-color:#444647;color:#a3a7a9;}
+body.dark .contrast,
+body.dark .contrast a{color:#666666}
+body.dark .site-footer{border-top:1px solid #666666;background-color:#a3a7a9;}
 
 
 /* ==========================================================================

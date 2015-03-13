@@ -54,7 +54,7 @@ if (have_posts()) :
 			</div>';	
 		}			
 		
-		the_excerpt();
+		the_content();
 	}else{
 		// if your front page is a proper static homepage:
 		?>

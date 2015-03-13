@@ -3,18 +3,14 @@
 
 //display search results
 
-//loop: query a single page, and display it.
-
-//note: be careful to use functions that clean user input before browser output!!!
+//note: always clean user input before browser output!!!
 
 
 get_header();
 ?>
-<h1>Search results for
-<?php 
+<h1>Search results for <?php 
 	the_search_query();//sanitized search query.  NEVER just echo get['s']!!!
-?>
-</h1>
+?></h1>
 		<div id="breadcrumbs">
 			<div class="content">
 				You are here: 
