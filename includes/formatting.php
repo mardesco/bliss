@@ -8,9 +8,29 @@
 //from http://codex.wordpress.org/Function_Reference/the_excerpt#Make_the_.22read_more.22_link_to_the_post
 function bliss_excerpt_more($more) {
     global $post;
-	return ' <a href="'. get_permalink($post->ID) . '">(...Read More)</a>';
+	return ' <br /><a href="'. get_permalink($post->ID) . '" class="right btn read-more-btn">Read More&nbsp;<span class="fa small fa-arrow-circle-right"></span></a>';
 }
 add_filter('excerpt_more', 'bliss_excerpt_more');
+
+// and along those same lines, let's style the "prev" and "next" post links the same way
+// new with version 1.0.7
+// with thanks to commenter Justin Klemm at https://css-tricks.com/snippets/wordpress/add-class-to-links-generated-by-next_posts_link-and-previous_posts_link/
+// whose comment helped me get this working!
+function bliss_next_post_link_attributes($output) {
+    $classname = 'class="btn"';
+    $output = str_replace(' href=', ' '.$classname.' href=', $output);
+	return str_replace('</a>', '&nbsp;<span class="fa fa-arrow-circle-right"></span></a>', $output);
+}
+add_filter('next_post_link', 'bliss_next_post_link_attributes');
+
+function bliss_previous_post_link_attributes($output) {
+    $classname = 'class="btn"';
+    $output = str_replace(' href=', ' '.$classname.' href=', $output);
+	return str_replace('">', '"><span class="fa fa-arrow-circle-left"></span>&nbsp;', $output);
+}
+add_filter('previous_post_link', 'bliss_previous_post_link_attributes');
+
+
 
 // next: Menus!
 function bliss_menu_registration(){

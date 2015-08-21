@@ -13,9 +13,9 @@
 		}
 		?>" placeholder="Find your bliss." value="" name="s" title="Search for:" />
 	</label>
-	<input type="submit" class="search-submit <?php
+	<button class="search-submit small <?php
 		if($bliss_corner_style == 'rounded'){
 			_e( ' rounded', 'bliss');
 		}
-		?>" value="Search" />
+		?>" ><span class="fa fa-search"></span></button>
 </form>

@@ -185,9 +185,9 @@ function bliss_user_customizations(){
 
 	printf('
 		<style type="text/css">
-			#container{width:%dpx;}
+			#bliss_container{width:%dpx;}
 			@media screen and (max-width:%dpx){
-				#container{
+				#bliss_container{
 					width:90%%;
 					margin:35px 5%%;
 				}
@@ -196,13 +196,13 @@ function bliss_user_customizations(){
 	}else{
 		if(isset($width) && $width === 0){
 			echo '<style type="text/css">
-				#container{
+				#bliss_container{
 					width:100%;
 					margin-left:0;
 					margin-right:0;
 				}
 				@media only screen and (max-width:1023px){
-					#container{
+					#bliss_container{
 						width:100%;
 						margin:35px 0;
 					}
@@ -295,15 +295,17 @@ function bliss_add_editor_styles() {
 	add_theme_support('custom-background');
 	add_theme_support('title-tag');// since WordPress 4.1
 
-
 	/* theme support, as REQUIRED by ThemeCheck */
 	add_theme_support('automatic-feed-links');	
 	
+	// theme support for html5, introduced in bliss v.1.0.1
+	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'widgets' ) );
+	
+	// theme support for WooCommerce, as of Bliss version 1.0.6
+	add_theme_support('woocommerce');
+	
 }
 add_action( 'after_setup_theme', 'bliss_add_editor_styles' );
-
-
-
 
 
 function bliss_collapsing_nav_menu(){

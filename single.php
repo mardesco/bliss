@@ -70,12 +70,12 @@ if (have_posts()) :
 	wp_link_pages();
 	
 	// prev. and next links
-	$next_post = get_next_post_link();
+	$next_post = get_next_post_link('%link');
 	if($next_post){
 		echo '<p class="right small">' . $next_post .'</p>';
 	}
 	
-	$previous_post = get_previous_post_link();
+	$previous_post = get_previous_post_link('%link');
 	if($previous_post){
 		echo '<p class="left small">'. $previous_post . '</p>';
 	}

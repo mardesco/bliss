@@ -197,6 +197,13 @@ For responsive content columns as seen in this theme's screenshot.png, all you n
 
 == Changelog ==
 
+1.0.7 Improve styling for "sticky" posts. Make "Read More" link a button with arrow icon. Same for "Previous Post" and "Next Post" links on single blog post pages.  Use magnifying glass icon in place of the word "search" on the search form.  
+1.0.6 Create recommended WooCommerce-specific content page.  Declare theme support for WooCommerce.
+1.0.5 Fix for navigation menu styling when user selected a color scheme from theme options but no menu had been saved (was resulting in nav menu items same color as background: no good!)
+1.0.4 Add style rules: borders & alignment for td, th & blockquote; responsive width for figure element.
+1.0.3 Allow user to change the title of the sidebar navigation menus. Check whether user has saved a sidebar menu, before attempting to output each menu.
+1.0.2 Add check for is_archive to /includes/slideshows.php to fix PHP error when a page does not have a post_id. Also resolve container naming conflict with WooCommerce: change container id from "container" to "bliss_container." For good measure, also change element id "main" to "bliss_main." Update CSS accordingly. 
+1.0.1 Add theme support for HTML5 elements in comment forms, galleries, and widgets.
 1.0.0 Updated theme is released on WordPress.org. 
 0.1.6 Add widget areas to footer.  Add social icon menu with Font Awesome icons to footer. Make the "branding" text smaller. New screenshot.png
 0.1.5 Change default menu style from legacy buttons to the full-width nav menu introduced in version 0.1.1 (will only affect users who have never saved their preference: primarily, new theme downloads).  Add brown color scheme option.  Add container margin on left & right for mobile device screens; reduce top/bottom container margins for same.  Some code cleaning.

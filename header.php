@@ -32,7 +32,7 @@
 
 <a href="#contentLink" class="visuallyhidden">Skip navigation</a>
 
-<div id="container" class="shadow <?php
+<div id="bliss_container" class="shadow <?php
 	// a future release will upgrade to object-oriented programming, to arrest the propagation of global variables.
 	global $bliss_corner_style;
 	$bliss_corner_style = of_get_option('bliss_corner_style', 'square');
@@ -156,7 +156,7 @@
 
 <div id="wrapper">
 
-    <div id="main" role="main">
+    <div id="bliss_main" role="main">
 		
 		<a id="contentLink" class="visuallyhidden">&nbsp;</a>
 		

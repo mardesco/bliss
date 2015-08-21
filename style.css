@@ -2,9 +2,9 @@
 Theme Name: Bliss
 Author: Jesse Smith for Mardesco
 Theme URI: http://www.mardesco.com/themes/bliss/
-Description: A blissful website experience.  "Bliss" is a mobile-friendly, responsive WordPress theme with a clean, modern design.  Feature-rich theme includes built-in slideshows, theme color switcher, a convenient site logo uploader, and more!  
+Description: A blissful website experience.  "Bliss" is a mobile-friendly, responsive WordPress theme with a clean, modern design.  Feature-rich theme includes built-in slideshows, theme color switcher, a convenient site logo uploader, and more!  Now with WooCommerce compatibility.
 Author URI: http://www.mardesco.com
-Version: 1.0.0
+Version: 1.0.7
 Tags: blue,brown,custom-header,custom-background,green,gray,featured-images,left-sidebar,responsive-layout,right-sidebar,theme-options
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -419,6 +419,10 @@ td img {
 .spacer{
     margin-top:2.25em;
 }
+p.spacer{
+	margin-top:inherit;
+	padding-top:2.25em;
+}
 
 .inlineSpacer{
     display:inline-block;
@@ -534,6 +538,14 @@ hr {
     padding: 0;
 }
 
+/* new defaults added with version 1.0.4 */
+th, td{padding:0.125em 0.25em;border:1px solid #eee; text-align:left;}
+
+.widget td, .widget th{text-align:center;}
+
+blockquote{border-left:1px solid #eee;padding-left:1em;}
+
+
 /* some classes required by ThemeCheck */
 .wp-caption,
 .wp-caption-text,
@@ -551,7 +563,7 @@ hr {
 /* some more default classes */
 .aligncenter,
 .center,
-#main p.center{
+#bliss_main p.center{
     text-align:center;
     margin:0 auto;
 }
@@ -773,6 +785,7 @@ Header navigation styles, including suckerfish-style dropdown menus.
 	padding:6px 9px;
 }
 
+.rounded a.btn,
 .rounded #headerNav  ul li a,
 .rounded .bliss-header-nav .menu ul li a{
 	border-radius:3px;
@@ -915,6 +928,9 @@ begin collapsing-nav-menu.css
 	border-radius:4px;
 }
 
+button.btn,
+a.btn{padding:6px 8px;}
+
 /* adjust menu button position to account for the admin bar for logged-in users */
 body.logged-in.admin-bar #headerNavWrap.collapsed .open_menu_button{
 	top:108px;/* the above, plus 28 pixels */ 
@@ -993,6 +1009,10 @@ end collapsing-nav-menu.css
 	#searchform{clear:none}
 }
 
+#searchform input[type=search]{margin-bottom:3px}
+
+#searchform button.search-submit{padding:4px 8px;}
+
 
 /* not 760. */
 @media screen and (max-width:680px){
@@ -1017,7 +1037,7 @@ end collapsing-nav-menu.css
     width:100%;
     float:left;
 }
-#main{
+#bliss_main{
     
 }
 
@@ -1025,20 +1045,20 @@ end collapsing-nav-menu.css
 	margin-bottom:26px;
 }
 
-#main h1{
+#bliss_main h1{
     margin:0 0 1em 0;
 }
-#main h2,
-#main h3,
-#main h4,
-#main h5,
-#main h6,
-#main p,
-#main ul{
+#bliss_main h2,
+#bliss_main h3,
+#bliss_main h4,
+#bliss_main h5,
+#bliss_main h6,
+#bliss_main p,
+#bliss_main ul{
 	margin:1em 0;
 }
 
-#main p{
+#bliss_main p{
     text-align:left;
 }
 
@@ -1056,6 +1076,10 @@ end collapsing-nav-menu.css
 	#wrapper{
 		padding-top:23px;
 	}
+}
+
+.widget{
+	margin-bottom:20px;
 }
 
 .rightSideNav h2,
@@ -1212,8 +1236,14 @@ ul.page-numbers span.current {
 	padding-top:7px;
 }
 
-.sticky{/* required by ThemeCheck */
+/* styles for sticky posts are required by ThemeCheck */
+.sticky,
+article.tag-sticky,
+article.tag-sticky-2{
     font-size:110%;
+	padding:20px;
+	border:2px solid #777;
+	clear:both;
 }
 
 .fixednav{
@@ -1223,7 +1253,7 @@ ul.page-numbers span.current {
 
 
 
-#container.rounded .site-header{
+#bliss_container.rounded .site-header{
 	-moz-border-radius-topright: 3px;
 	-webkit-border-top-right-radius:3px;
 	border-top-right-radius:3px;
@@ -1235,7 +1265,7 @@ ul.page-numbers span.current {
 	background-clip:padding-box;
 }
 
-#container.rounded .site-footer{
+#bliss_container.rounded .site-footer{
 	-moz-border-radius-bottomright: 3px;
 	-webkit-border-bottom-right-radius:3px;
 	border-bottom-right-radius:3px;
@@ -1257,7 +1287,8 @@ ul.page-numbers span.current {
 
 img,
 object,
-embed {
+embed,
+figure {
     max-width: 100%;
     height:auto;
 }
@@ -1265,16 +1296,16 @@ embed {
 
 
 /* 
-Never apply padding to the #container.  It breaks the layout when the browser is resized. 	
+Never apply padding to the #bliss_container.  It breaks the layout when the browser is resized. 	
 Instead, apply padding to the elements within the container. 
 */
-#container{
+#bliss_container{
     width:1024px;
     margin:40px auto;
 }
 
 @media only screen and (max-width:1023px){
-    #container{
+    #bliss_container{
         width:90%;
 		margin:35px 5%;
     }
@@ -1288,8 +1319,8 @@ also, don't apply padding to the footer.  instead, add the padding to footer .co
 footer .content{
 	padding:60px 2.9% 10px;
 }
-.hasRightNav #main{padding-right:2.9%;}
-.hasLeftNav #main{padding-left:2.9%;}
+.hasRightNav #bliss_main{padding-right:2.9%;}
+.hasLeftNav #bliss_main{padding-left:2.9%;}
 
 
 
@@ -1297,7 +1328,7 @@ footer .content{
 
 
 /* the default: layout with no sidebars. */
-#main{
+#bliss_main{
     margin:0;
     padding:0 2.9%;
 }	
@@ -1313,7 +1344,7 @@ footer .content{
  *
  */
  
-.hasLeftNav #main{
+.hasLeftNav #bliss_main{
     margin-left:22.45%;
     padding-left:2.9%;/* must match right nav, below. */
 }
@@ -1328,8 +1359,8 @@ footer .content{
 
 /* specific to narrow browsers and tablet computers, less than 875px wide */
 @media only screen and (max-width: 874px){
-    /* at this size,  the left sidebar displays below #main.  */
-    .hasLeftNav #main{
+    /* at this size,  the left sidebar displays below #bliss_main.  */
+    .hasLeftNav #bliss_main{
         margin-left:0;
     }
     .sideNav,
@@ -1356,7 +1387,7 @@ our default full width should be seen
 from large regular screens down to tablets and narrow browsers, min. 680px wide. 
 */
 
-.hasRightNav #main{
+.hasRightNav #bliss_main{
     margin-right:22.45%;
     padding-right:2.9%;/* must match left nav, above. */
 }
@@ -1372,7 +1403,7 @@ from large regular screens down to tablets and narrow browsers, min. 680px wide.
 
 /* small screens: no right hand sidebar either. */
 @media only screen and (max-width:679px){
-    .hasRightNav #main{
+    .hasRightNav #bliss_main{
         margin:0;
         padding:0 2.9% 0 0;
     }
@@ -1395,16 +1426,16 @@ from large regular screens down to tablets and narrow browsers, min. 680px wide.
 @media only screen and (max-width:650px){
 	
     /* don't try to wrap text around floated images/objects on small screens. */
-    #main .pic,
-    #main .picR{
+    #bliss_main .pic,
+    #bliss_main .picR{
         display:block;
         clear:both;
         float:none;
         text-align:center;
         margin:0 auto;
     }
-    #main .pic:after,
-    #main .picR:after{
+    #bliss_main .pic:after,
+    #bliss_main .picR:after{
         content:"";
         display:block; 
         clear:both;
@@ -1440,7 +1471,7 @@ from large regular screens down to tablets and narrow browsers, min. 680px wide.
 /* user-selectable color schemes */
 
 body.blue{background-color:#007fb1;}
-body.blue #container{background-color:#d8ecf4}
+body.blue #bliss_container{background-color:#d8ecf4}
 body.blue a,
 body.blue h1,
 body.blue h2,
@@ -1449,10 +1480,13 @@ body.blue h4,
 body.blue h5, 
 body.blue h6{color:#0074A2}
 body.blue a:hover{color:#2ac3ff}
+body.blue a.btn,
 body.blue .site-header .menu > ul > li > a,
 body.blue #headerNav > ul > li > a,
+body.blue .bliss-full-wrap .menu > ul > li > a,
 body.blue .bliss-full-width-nav,
 body.blue .bliss-full-wrap .menu{background-color:#0074A2;color:#d8ecf4}
+body.blue a.btn:hover,
 body.blue .site-header .menu > ul > li > a:hover,
 body.blue #headerNav > ul > li > a:hover{background-color:#007fb1;color:#d8ecf4}
 body.blue .bliss-full-width-nav > ul > li > a:hover,
@@ -1464,7 +1498,7 @@ body.blue .site-footer{border-top:1px solid #007fb1;background-color:#e2e2e2}
 
 
 body.green{background-color:#018113}
-body.green #container{background-color:#c4ffc5}
+body.green #bliss_container{background-color:#c4ffc5}
 body.green a,
 body.green h1,
 body.green h2,
@@ -1473,10 +1507,13 @@ body.green h4,
 body.green h5, 
 body.green h6{color:#00650f}
 body.green a:hover{color:#018113}/*0F0*/
+body.green a.btn,
 body.green .site-header .menu > ul > li > a,
 body.green #headerNav > ul > li > a,
+body.green .bliss-full-wrap .menu > ul > li > a,
 body.green .bliss-full-width-nav,
 body.green .bliss-full-wrap .menu{background-color:#00650f;color:#c4ffc5}
+body.green a.btn:hover,
 body.green .site-header .menu > ul > li > a:hover,
 body.green #headerNav > ul > li > a:hover{background-color:#018113;}
 body.green .bliss-full-width-nav > ul > li > a:hover,
@@ -1489,7 +1526,7 @@ body.green .site-footer{border-top:1px solid #018113;background-color:#e2e2e2;}
 
 body.maroon{background-color:#540e1f;}
 body.maroon .site-header{background-color:#9f9f9f;}/* That's grey.  If you prefer pink, you could use: #ffd9e2;*/
-body.maroon #container{background-color:#e2e2e2;}
+body.maroon #bliss_container{background-color:#e2e2e2;}
 body.maroon a,
 body.maroon h1,
 body.maroon h2,
@@ -1498,8 +1535,10 @@ body.maroon h4,
 body.maroon h5, 
 body.maroon h6{color:#540e1f}
 body.maroon a:hover{color:#921936}
+body.maroon a.btn,
 body.maroon .site-header .menu > ul > li > a,
 body.maroon #headerNav > ul > li > a{background-color:#540e1f;color:#9f9f9f}/*a3a7a9;*/
+body.maroon a.btn:hover,
 body.maroon .site-header .menu > ul > li > a:hover,
 body.maroon #headerNav > ul > li > a:hover{background-color:#921936/*;color:#540e1f*/}
 body.maroon .bliss-full-width-nav > ul > li > a:hover,
@@ -1524,7 +1563,7 @@ body.maroon .site-footer{border-top:1px solid #540e1f;background-color:#9f9f9f;}
 
 
 body.brown{background-color:#5a2a00;/*#401300;/*#521800;*/}
-body.brown #container{background-color:#fddec2}
+body.brown #bliss_container{background-color:#fddec2}
 body.brown a,
 body.brown h1,
 body.brown h2,
@@ -1533,10 +1572,13 @@ body.brown h4,
 body.brown h5, 
 body.brown h6{color:#774111}/*7F2500*//*7F1800*/
 body.brown a:hover{color:#E86C0C}
+body.brown a.btn,
 body.brown .site-header .menu > ul > li > a,
 body.brown #headerNav > ul > li > a,
+body.brown .bliss-full-wrap .menu > ul > li > a,
 body.brown .bliss-full-width-nav,
 body.brown .bliss-full-wrap .menu{background-color:#774111;color:#fddec2}
+body.brown a.btn:hover,
 body.brown .site-header .menu > ul > li > a:hover,
 body.brown #headerNav > ul > li > a:hover{background-color:#5a2a00;color:#fddec2}
 body.brown .bliss-full-width-nav > ul > li > a:hover,
@@ -1548,7 +1590,7 @@ body.brown .site-footer{border-top:1px solid #5a2a00;background-color:#e2e2e2}
 
 
 body.light{background-color:#EFEFEF;}
-body.light #container{background-color:#F8F8F8;}
+body.light #bliss_container{background-color:#F8F8F8;}
 body.light a,
 body.light h1,
 body.light h2,
@@ -1557,10 +1599,12 @@ body.light h4,
 body.light h5, 
 body.light h6{color:#656869}
 body.light a:hover{color:#a3a7a9}
+body.light a.btn,
 body.light .bliss-header-nav .menu > ul > li > a,
 body.light #headerNav > ul > li > a,
 body.light .bliss-full-width-nav,
 body.light .bliss-full-wrap .menu{background-color:#656869;color:#F8F8F8}/*color:#a3a7a9*/
+body.light a.btn:hover,
 body.light .site-header .menu > ul > li > a:hover,
 body.light #headerNav > ul > li > a:hover{background-color:#a3a7a9;color:#444647}/*656869*/
 body.light .bliss-full-width-nav > ul > li > a:hover,
@@ -1571,7 +1615,7 @@ body.light .contrast a{color:#656869}
 body.light .site-footer{border-top:1px solid #656869}
 
 body.dark{background-color:#666666;}
-body.dark #container{background-color:#eee;}
+body.dark #bliss_container{background-color:#eee;}
 body.dark .site-header{background-color:#a3a7a9}
 body.dark a,
 body.dark h1,
@@ -1581,10 +1625,13 @@ body.dark h4,
 body.dark h5, 
 body.dark h6{color:#444647}
 body.dark a:hover{color:#656869}
+body.dark a.btn,
 body.dark .site-header .menu > ul > li > a,
+body.dark .bliss-full-wrap .menu > ul > li > a,
 body.dark #headerNav > ul > li > a,
 body.dark .bliss-full-width-nav,
 body.dark .bliss-full-wrap .menu{background-color:#444647;color:#a3a7a9}
+body.dark a.btn:hover,
 body.dark .site-header .menu > ul > li > a:hover,
 body.dark #headerNav > ul > li > a:hover{background-color:#656869;color:#eee}
 body.dark .bliss-full-width-nav > ul > li > a:hover,

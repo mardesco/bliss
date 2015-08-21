@@ -26,7 +26,7 @@ function bliss_get_slideshow_id(){
 		return 1;
 	}
 	
-	if(is_404() || is_search()){
+	if(is_404() || is_search() || is_archive()){
 		return false;
 	}			
 
