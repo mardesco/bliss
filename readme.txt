@@ -5,7 +5,7 @@ Donate link: http://www.mardesco.com/payments/
 Theme URI: http://www.mardesco.com/themes/bliss/
 Tags:  blue,custom-header,custom-background,custom-logo,custom-width,green,grey,featured-images,left-sidebar,maroon,mobile,options,responsive,responsive-layout,right-sidebar,theme-options
 Requires at least: 3.7
-Tested up to: 4.1.1
+Tested up to: 4.3
 Stable tag: trunk
 License: Bliss WordPress theme, copyright 2014 by Mardesco.  Bliss is distributed under the terms of the GNU GPLv2
 
@@ -197,6 +197,7 @@ For responsive content columns as seen in this theme's screenshot.png, all you n
 
 == Changelog ==
 
+1.0.8 Add textdomain for improved internationalization.
 1.0.7 Improve styling for "sticky" posts. Make "Read More" link a button with arrow icon. Same for "Previous Post" and "Next Post" links on single blog post pages.  Use magnifying glass icon in place of the word "search" on the search form.  
 1.0.6 Create recommended WooCommerce-specific content page.  Declare theme support for WooCommerce.
 1.0.5 Fix for navigation menu styling when user selected a color scheme from theme options but no menu had been saved (was resulting in nav menu items same color as background: no good!)
