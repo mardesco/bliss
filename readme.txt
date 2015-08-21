@@ -197,6 +197,7 @@ For responsive content columns as seen in this theme's screenshot.png, all you n
 
 == Changelog ==
 
+1.0.11 Rename a function within Options Framework to resolve collision. Note that add_theme_page() was in fact properly implemented by the framework all along.
 1.0.10 Update to latest version of Options Framework because the earlier change to add_theme_page() did not resolve the automatic theme check conflict. 
 1.0.9 Correct new theme review requirements: add .screen-reader-text CSS class; change options framework admin page feature to implement the add_theme_page() function; replace placeholder text domain in options framework files.
 1.0.8 Add textdomain for improved internationalization.

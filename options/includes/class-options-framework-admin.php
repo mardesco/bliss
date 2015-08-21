@@ -31,7 +31,7 @@ class Options_Framework_Admin {
     	if ( $options ) {
 
 			// Add the options page and menu item.
-			add_action( 'admin_menu', array( $this, 'add_custom_options_page' ) );
+			add_action( 'admin_menu', array( $this, 'bliss_options_page' ) );
 
 			// Add the required scripts and styles
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
@@ -88,8 +88,8 @@ class Options_Framework_Admin {
             'mode' => 'submenu',
 
             // Submenu default settings
-            'page_title' => __( 'Theme Options', 'theme-textdomain' ),
-			'menu_title' => __( 'Theme Options', 'theme-textdomain' ),
+            'page_title' => __( 'Bliss Theme Options', 'bliss' ),
+			'menu_title' => __( 'Bliss Theme Options', 'bliss' ),
 			'capability' => 'edit_theme_options',
 			'menu_slug' => 'options-framework',
             'parent_slug' => 'themes.php',
@@ -108,7 +108,9 @@ class Options_Framework_Admin {
      *
      * @since 1.7.0
      */
-	function add_custom_options_page() {
+	 // Mardesco edit:
+	 // ThemeCheck still complains about this function name.  Note that the required add_theme_page function is used here.
+	function bliss_options_page() {
 
 		$menu = $this->menu_settings();
 
@@ -200,8 +202,8 @@ class Options_Framework_Admin {
 				<?php settings_fields( 'optionsframework' ); ?>
 				<?php Options_Framework_Interface::optionsframework_fields(); /* Settings */ ?>
 				<div id="optionsframework-submit">
-					<input type="submit" class="button-primary" name="update" value="<?php esc_attr_e( 'Save Options', 'theme-textdomain' ); ?>" />
-					<input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Restore Defaults', 'theme-textdomain' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Click OK to reset. Any theme settings will be lost!', 'theme-textdomain' ) ); ?>' );" />
+					<input type="submit" class="button-primary" name="update" value="<?php esc_attr_e( 'Save Options', 'bliss' ); ?>" />
+					<input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Restore Defaults', 'bliss' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Click OK to reset. Any theme settings will be lost!', 'bliss' ) ); ?>' );" />
 					<div class="clear"></div>
 				</div>
 				</form>
@@ -232,7 +234,7 @@ class Options_Framework_Admin {
 		 */
 
 		if ( isset( $_POST['reset'] ) ) {
-			add_settings_error( 'options-framework', 'restore_defaults', __( 'Default options restored.', 'theme-textdomain' ), 'updated fade' );
+			add_settings_error( 'options-framework', 'restore_defaults', __( 'Default options restored.', 'bliss' ), 'updated fade' );
 			return $this->get_default_values();
 		}
 
@@ -286,7 +288,7 @@ class Options_Framework_Admin {
 	 */
 
 	function save_options_notice() {
-		add_settings_error( 'options-framework', 'save_options', __( 'Options saved.', 'theme-textdomain' ), 'updated fade' );
+		add_settings_error( 'options-framework', 'save_options', __( 'Options saved.', 'bliss' ), 'updated fade' );
 	}
 
 	/**
