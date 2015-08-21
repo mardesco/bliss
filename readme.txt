@@ -197,6 +197,8 @@ For responsive content columns as seen in this theme's screenshot.png, all you n
 
 == Changelog ==
 
+1.0.10 Update to latest version of Options Framework because the earlier change to add_theme_page() did not resolve the automatic theme check conflict. 
+1.0.9 Correct new theme review requirements: add .screen-reader-text CSS class; change options framework admin page feature to implement the add_theme_page() function; replace placeholder text domain in options framework files.
 1.0.8 Add textdomain for improved internationalization.
 1.0.7 Improve styling for "sticky" posts. Make "Read More" link a button with arrow icon. Same for "Previous Post" and "Next Post" links on single blog post pages.  Use magnifying glass icon in place of the word "search" on the search form.  
 1.0.6 Create recommended WooCommerce-specific content page.  Declare theme support for WooCommerce.
